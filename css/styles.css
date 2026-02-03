@@ -802,12 +802,14 @@ p {
   z-index: 3;
   width: 100%;
   padding: var(--space-xl) var(--space-md);
+  padding-top: calc(var(--header-height) + var(--space-lg));
   padding-bottom: var(--space-2xl);
 }
 
 @media (min-width: 768px) {
   .hero__content {
     padding: var(--space-xl) var(--space-lg);
+    padding-top: var(--space-xl);
     padding-bottom: var(--space-2xl);
   }
 }
@@ -943,6 +945,7 @@ p {
   z-index: 2;
   width: 100%;
   padding: var(--space-xl) var(--space-md);
+  padding-top: calc(var(--header-height) + var(--space-lg));
   max-width: var(--container-wide);
   margin: 0 auto;
 }
@@ -2214,7 +2217,14 @@ p {
   z-index: 2;
   text-align: center;
   padding: var(--space-md);
+  padding-top: calc(var(--header-height) + var(--space-md));
   max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .design-lj-hero__content {
+    padding-top: var(--space-md);
+  }
 }
 
 .design-lj-hero__badge {
