@@ -357,6 +357,18 @@ p {
   height: var(--header-height);
   z-index: 1000;
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+  /* Solid background on mobile to prevent content showing through */
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+  .header {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 .header.scrolled {
