@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Luke Jones Furniture for a free design consultation. Visit our Chipperfield workshop or call 01442 832891. Bespoke furniture in Hertfordshire.">
+  <title>Contact Us | Luke Jones Furniture</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Luke-Jones-Type-Logo.png">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__logo">
+        <a href="index.html">
+          <img src="images/Luke-Jones-Type-Logo.png" alt="Luke Jones Furniture" class="header__logo-img">
+        </a>
+      </div>
+
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">Home</a></li>
+          <li><a href="portfolio.html" class="header__nav-link">Portfolio</a></li>
+          <li><a href="how-we-work.html" class="header__nav-link">How We Work</a></li>
+          <li><a href="design-lj.html" class="header__nav-link">Design LJ</a></li>
+          <li><a href="contact.html" class="header__nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__cta">
+        <a href="tel:+441442832891" class="header__phone">01442 832891</a>
+        <a href="contact.html" class="header__book-btn">Book Consultation</a>
+      </div>
+
+      <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="portfolio.html" class="mobile-nav__link">Portfolio</a></li>
+      <li><a href="how-we-work.html" class="mobile-nav__link">How We Work</a></li>
+      <li><a href="design-lj.html" class="mobile-nav__link">Design LJ</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__contact">
+      <a href="tel:+441442832891" class="mobile-nav__phone">01442 832891</a>
+      <a href="contact.html" class="btn btn--primary">Book Consultation</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero__background">
+      <img src="images/SDOR-TJ-Croxley-Green-0006.jpg" alt="Luke Jones Furniture workshop" class="page-hero__image">
+    </div>
+    <div class="page-hero__content">
+      <span class="eyebrow">Get In Touch</span>
+      <h1 class="page-hero__title">Contact Us</h1>
+      <p class="page-hero__subtitle">Book your free consultation or get in touch to discuss your project.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form reveal" id="contactFormWrapper">
+          <h2 class="contact-form__title">Request a Free Consultation</h2>
+          <p class="contact-form__text">Tell us about your project and we'll be in touch to arrange a convenient time to discuss your ideas.</p>
+
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name" class="form-group__label">Full Name *</label>
+              <input type="text" id="name" name="name" class="form-group__input" required autocomplete="name">
+              <span class="form-group__error">Please enter your name</span>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-group__label">Email Address *</label>
+              <input type="email" id="email" name="email" class="form-group__input" required autocomplete="email">
+              <span class="form-group__error">Please enter a valid email address</span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="form-group__label">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" class="form-group__input" required autocomplete="tel">
+              <span class="form-group__error">Please enter your phone number</span>
+            </div>
+
+            <div class="form-group">
+              <label for="project" class="form-group__label">Project Type *</label>
+              <select id="project" name="project" class="form-group__select" required>
+                <option value="">Please select...</option>
+                <option value="kitchen">Kitchen</option>
+                <option value="bedroom">Bedroom</option>
+                <option value="bathroom">Bathroom</option>
+                <option value="study">Study / Home Office</option>
+                <option value="av-display">AV / Display</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-group__error">Please select a project type</span>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-group__label">Tell Us About Your Project</label>
+              <textarea id="message" name="message" class="form-group__textarea" placeholder="Share any details about your project — dimensions, inspiration, timeline, or any questions you have..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="source" class="form-group__label">How Did You Hear About Us?</label>
+              <select id="source" name="source" class="form-group__select">
+                <option value="">Please select...</option>
+                <option value="google">Google Search</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="recommendation">Friend / Family Recommendation</option>
+                <option value="architect">Architect / Designer</option>
+                <option value="returning">Returning Customer</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn--primary contact-form__submit">
+              Request Your Free Consultation
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div class="contact-form__success" id="formSuccess">
+            <div class="contact-form__success-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="contact-form__success-title">Thank You</h3>
+            <p class="contact-form__success-text">We've received your consultation request and will be in touch within 24 hours to arrange a convenient time to discuss your project.</p>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info reveal reveal-delay-2">
+          <div class="contact-info__block">
+            <h3 class="contact-info__title">Call Us</h3>
+            <p class="contact-info__text">
+              <a href="tel:+441442832891" class="contact-info__phone">01442 832891</a>
+              <span style="color: var(--color-grey-warm); display: block; margin-top: 4px;">Monday–Friday, 9am–5pm</span>
+            </p>
+          </div>
+
+          <div class="contact-info__block">
+            <h3 class="contact-info__title">Email Us</h3>
+            <p class="contact-info__text">
+              <a href="mailto:info@lukejonesfurniture.co.uk" class="contact-info__email">info@lukejonesfurniture.co.uk</a>
+              <span style="color: var(--color-grey-warm); display: block; margin-top: 4px;">Feel free to attach inspiration images</span>
+            </p>
+          </div>
+
+          <div class="contact-info__block">
+            <h3 class="contact-info__title">Visit Our Workshop</h3>
+            <p class="contact-info__text">
+              <strong>Greinan Farm</strong><br>
+              Tower Hill<br>
+              Chipperfield<br>
+              Hertfordshire<br>
+              WD4 9LU
+            </p>
+            <p style="color: var(--color-grey-warm); font-size: 0.9375rem; margin-top: var(--space-sm);">
+              <strong style="color: var(--color-charcoal);">Opening Hours:</strong><br>
+              Monday–Friday: 9am–5pm<br>
+              Saturday: By appointment only
+            </p>
+          </div>
+
+          <div class="contact-info__block">
+            <h3 class="contact-info__title">Follow Us</h3>
+            <p class="contact-info__text" style="color: var(--color-grey-warm);">See our latest projects and behind-the-scenes workshop moments.</p>
+            <div class="contact-social">
+              <a href="https://www.facebook.com/lukejonesfurniture" class="contact-social__link" aria-label="Facebook" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://twitter.com/lj_furniture" class="contact-social__link" aria-label="Twitter" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/lukejonesfurniture" class="contact-social__link" aria-label="Instagram" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="contact-map">
+            <div class="contact-map__placeholder">
+              <div class="contact-map__placeholder-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <p><strong>Chipperfield, Hertfordshire</strong></p>
+              <p style="font-size: 0.875rem; color: var(--color-grey-warm);">Near Watford, Rickmansworth & Amersham</p>
+              <a href="https://www.google.com/maps/search/Greinan+Farm+Tower+Hill+Chipperfield+Hertfordshire+WD4+9LU" target="_blank" rel="noopener" class="btn btn--secondary" style="margin-top: var(--space-md); padding: 0.75rem 1.5rem; font-size: 0.6875rem;">
+                <span>View on Google Maps</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Areas Served -->
+  <section class="section section--ivory">
+    <div class="container container--narrow">
+      <div class="text-center reveal">
+        <span class="eyebrow">Areas We Serve</span>
+        <h2>Proudly Serving Hertfordshire & Beyond</h2>
+        <p style="color: var(--color-grey-warm); margin-top: var(--space-sm);">
+          Based in Chipperfield, we work with clients throughout Hertfordshire, Buckinghamshire, and the surrounding Home Counties. Our team regularly visits homes in:
+        </p>
+        <p style="color: var(--color-charcoal); margin-top: var(--space-md); line-height: 2;">
+          Amersham &bull; Beaconsfield &bull; Berkhamsted &bull; Bourne End &bull; Chalfont St. Giles &bull; Chesham &bull; Chorleywood &bull; Croxley Green &bull; Gerrards Cross &bull; Harpenden &bull; Hemel Hempstead &bull; Kings Langley &bull; Radlett &bull; Rickmansworth &bull; St Albans &bull; Tring &bull; Watford
+        </p>
+        <p style="color: var(--color-grey-warm); margin-top: var(--space-md);">
+          Don't see your area? Get in touch — we're happy to discuss projects further afield.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-name">Luke Jones</span>
+            <span class="footer__logo-tagline">Furniture</span>
+          </div>
+          <p class="footer__brand-text">Bespoke furniture handcrafted in our Hertfordshire workshop. Every piece made to order, designed around you.</p>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="how-we-work.html" class="footer__link">How We Work</a></li>
+            <li><a href="design-lj.html" class="footer__link">DESIGN LJ</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="portfolio.html?category=kitchens" class="footer__link">Kitchens</a></li>
+            <li><a href="portfolio.html?category=bedrooms" class="footer__link">Bedrooms</a></li>
+            <li><a href="portfolio.html?category=bathrooms" class="footer__link">Bathrooms</a></li>
+            <li><a href="portfolio.html?category=studies" class="footer__link">Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact-item">
+            <a href="tel:+441442832891">01442 832891</a>
+          </div>
+          <div class="footer__contact-item">
+            <a href="mailto:info@lukejonesfurniture.co.uk">info@lukejonesfurniture.co.uk</a>
+          </div>
+          <div class="footer__contact-item">
+            Greinan Farm, Tower Hill<br>
+            Chipperfield, Hertfordshire<br>
+            WD4 9LU
+          </div>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/lukejonesfurniture" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://twitter.com/lj_furniture" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lukejonesfurniture" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2024 Luke Jones Furniture. All rights reserved.</p>
+        <p class="footer__credit">Website by <a href="https://hertfordshirewebsites.com" target="_blank" rel="noopener">Hertfordshire Websites</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

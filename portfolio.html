@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore our portfolio of bespoke kitchens, bedrooms, bathrooms, studies and more. Handcrafted furniture from Luke Jones Furniture, Hertfordshire.">
+  <title>Portfolio | Luke Jones Furniture</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Luke-Jones-Type-Logo.png">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <!-- Header -->
+  <header class="header header--light" id="header">
+    <div class="header__inner">
+      <div class="header__logo">
+        <a href="index.html">
+          <img src="images/Luke-Jones-Type-Logo.png" alt="Luke Jones Furniture" class="header__logo-img">
+        </a>
+      </div>
+
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="index.html" class="header__nav-link">Home</a></li>
+          <li><a href="portfolio.html" class="header__nav-link active">Portfolio</a></li>
+          <li><a href="how-we-work.html" class="header__nav-link">How We Work</a></li>
+          <li><a href="design-lj.html" class="header__nav-link">Design LJ</a></li>
+          <li><a href="contact.html" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__cta">
+        <a href="tel:+441442832891" class="header__phone">01442 832891</a>
+        <a href="contact.html" class="header__book-btn">Book Consultation</a>
+      </div>
+
+      <button class="header__menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="mobile-nav__list">
+      <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+      <li><a href="portfolio.html" class="mobile-nav__link">Portfolio</a></li>
+      <li><a href="how-we-work.html" class="mobile-nav__link">How We Work</a></li>
+      <li><a href="design-lj.html" class="mobile-nav__link">Design LJ</a></li>
+      <li><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+    </ul>
+    <div class="mobile-nav__contact">
+      <a href="tel:+441442832891" class="mobile-nav__phone">01442 832891</a>
+      <a href="contact.html" class="btn btn--primary">Book Consultation</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero__background">
+      <img src="images/19_HR__MG_9087-copy.jpg" alt="Bespoke furniture portfolio" class="page-hero__image">
+    </div>
+    <div class="page-hero__content">
+      <span class="eyebrow">Our Work</span>
+      <h1 class="page-hero__title">Portfolio</h1>
+      <p class="page-hero__subtitle">Every piece tells a story. Explore our collection of bespoke furniture, handcrafted in Hertfordshire.</p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section section--large">
+    <div class="container">
+      <!-- Filters -->
+      <div class="portfolio-filters reveal">
+        <button class="portfolio-filter active" data-filter="all">All Projects</button>
+        <button class="portfolio-filter" data-filter="kitchens">Kitchens</button>
+        <button class="portfolio-filter" data-filter="bedrooms">Bedrooms</button>
+        <button class="portfolio-filter" data-filter="bathrooms">Bathrooms</button>
+        <button class="portfolio-filter" data-filter="studies">Studies</button>
+        <button class="portfolio-filter" data-filter="av-display">AV / Display</button>
+        <button class="portfolio-filter" data-filter="other">Other Rooms</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Kitchen Projects -->
+        <div class="portfolio-item featured reveal" data-category="kitchens">
+          <img src="images/19_HR__MG_9087-copy.jpg" alt="Luxury bespoke kitchen" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Kitchens</span>
+            <h3 class="portfolio-item__title">Marble Island Kitchen</h3>
+            <span class="portfolio-item__location">Private House, Hertfordshire</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="kitchens">
+          <img src="images/SDOR-TJ-Croxley-Green-0003.jpg" alt="Contemporary dark kitchen" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Kitchens</span>
+            <h3 class="portfolio-item__title">Industrial Contemporary</h3>
+            <span class="portfolio-item__location">Private House, Croxley Green</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="kitchens">
+          <img src="images/SDOR-TJ-Croxley-Green-0006.jpg" alt="Modern grey kitchen" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Kitchens</span>
+            <h3 class="portfolio-item__title">Concrete & Grey</h3>
+            <span class="portfolio-item__location">Private House, Croxley Green</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="bedrooms">
+          <img src="images/Y3A2194-copy.jpg" alt="Children's bedroom suite" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Bedrooms</span>
+            <h3 class="portfolio-item__title">Ship's Cabin Beds</h3>
+            <span class="portfolio-item__location">Private House, Hertfordshire</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="kitchens">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Handle-less kitchen" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Kitchens</span>
+            <h3 class="portfolio-item__title">Handle-less Design</h3>
+            <span class="portfolio-item__location">Private House, Beaconsfield</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="kitchens">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Classic shaker kitchen" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Kitchens</span>
+            <h3 class="portfolio-item__title">Classic Shaker</h3>
+            <span class="portfolio-item__location">Private House, Chalfont St. Giles</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="bedrooms">
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&q=80" alt="Fitted wardrobe" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Bedrooms</span>
+            <h3 class="portfolio-item__title">Fitted Wardrobes</h3>
+            <span class="portfolio-item__location">Private House, Rickmansworth</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="bedrooms">
+          <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80" alt="Dressing room" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Bedrooms</span>
+            <h3 class="portfolio-item__title">Walk-in Dressing Room</h3>
+            <span class="portfolio-item__location">Private House, Amersham</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="bathrooms">
+          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Bathroom vanity" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Bathrooms</span>
+            <h3 class="portfolio-item__title">Vanity Unit</h3>
+            <span class="portfolio-item__location">Private House, Bourne End</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="bathrooms">
+          <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80" alt="Fitted bathroom furniture" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Bathrooms</span>
+            <h3 class="portfolio-item__title">Fitted Bathroom Suite</h3>
+            <span class="portfolio-item__location">Private House, St Albans</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="studies">
+          <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800&q=80" alt="Home office" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Studies</span>
+            <h3 class="portfolio-item__title">Home Office</h3>
+            <span class="portfolio-item__location">Private House, Chesham</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="studies">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&q=80" alt="Library" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Studies</span>
+            <h3 class="portfolio-item__title">Library & Study</h3>
+            <span class="portfolio-item__location">Private House, Berkhamsted</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="av-display">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80" alt="Media unit" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">AV / Display</span>
+            <h3 class="portfolio-item__title">Media Wall Unit</h3>
+            <span class="portfolio-item__location">Private House, Gerrards Cross</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="av-display">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&q=80" alt="Display cabinet" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">AV / Display</span>
+            <h3 class="portfolio-item__title">Display Cabinet</h3>
+            <span class="portfolio-item__location">Artillery Mansions, London</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="other">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Wine room" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Other Rooms</span>
+            <h3 class="portfolio-item__title">Wine Room</h3>
+            <span class="portfolio-item__location">Private House, Tring</span>
+          </div>
+        </div>
+
+        <div class="portfolio-item reveal" data-category="other">
+          <img src="https://images.unsplash.com/photo-1556909172-8c2f041fca1e?w=800&q=80" alt="Boot room" class="portfolio-item__image" loading="lazy">
+          <div class="portfolio-item__overlay">
+            <span class="portfolio-item__category">Other Rooms</span>
+            <h3 class="portfolio-item__title">Boot Room</h3>
+            <span class="portfolio-item__location">Private House, Kings Langley</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio CTA -->
+  <section class="portfolio-cta">
+    <div class="container container--narrow">
+      <div class="reveal">
+        <span class="eyebrow">Inspired?</span>
+        <h2 class="portfolio-cta__title">Let's Create Something Beautiful</h2>
+        <p class="portfolio-cta__text">Every project starts with a conversation. Tell us about your vision and we'll show you what's possible.</p>
+        <a href="contact.html" class="btn btn--primary">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image">&larr;</button>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next image">&rarr;</button>
+    <img src="" alt="" class="lightbox__image" id="lightboxImage">
+    <div class="lightbox__caption">
+      <span class="lightbox__caption-category" id="lightboxCategory"></span>
+      <h3 class="lightbox__caption-title" id="lightboxTitle"></h3>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-name">Luke Jones</span>
+            <span class="footer__logo-tagline">Furniture</span>
+          </div>
+          <p class="footer__brand-text">Bespoke furniture handcrafted in our Hertfordshire workshop. Every piece made to order, designed around you.</p>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Explore</h4>
+          <ul class="footer__links">
+            <li><a href="portfolio.html" class="footer__link">Portfolio</a></li>
+            <li><a href="how-we-work.html" class="footer__link">How We Work</a></li>
+            <li><a href="design-lj.html" class="footer__link">DESIGN LJ</a></li>
+            <li><a href="contact.html" class="footer__link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Services</h4>
+          <ul class="footer__links">
+            <li><a href="portfolio.html?category=kitchens" class="footer__link">Kitchens</a></li>
+            <li><a href="portfolio.html?category=bedrooms" class="footer__link">Bedrooms</a></li>
+            <li><a href="portfolio.html?category=bathrooms" class="footer__link">Bathrooms</a></li>
+            <li><a href="portfolio.html?category=studies" class="footer__link">Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__contact-item">
+            <a href="tel:+441442832891">01442 832891</a>
+          </div>
+          <div class="footer__contact-item">
+            <a href="mailto:info@lukejonesfurniture.co.uk">info@lukejonesfurniture.co.uk</a>
+          </div>
+          <div class="footer__contact-item">
+            Greinan Farm, Tower Hill<br>
+            Chipperfield, Hertfordshire<br>
+            WD4 9LU
+          </div>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/lukejonesfurniture" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://twitter.com/lj_furniture" class="footer__social-link" aria-label="Twitter" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lukejonesfurniture" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2024 Luke Jones Furniture. All rights reserved.</p>
+        <p class="footer__credit">Website by <a href="https://hertfordshirewebsites.com" target="_blank" rel="noopener">Hertfordshire Websites</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Scripts -->
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
