@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Package</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --color-cream: #fffcf7;
+            --color-ivory: #faf8f5;
+            --color-ivory-dark: #e8e4dd;
+            --color-charcoal: #141414;
+            --color-charcoal-light: #1e1e1e;
+            --color-grey-warm: #8a857d;
+            --color-grey-light: #b5b0a8;
+            --color-bronze: #c9a66b;
+            --color-bronze-light: #dfc291;
+            --color-bronze-dark: #a8864d;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 100px;
+        }
+
+        /* ── Header ── */
+        .page-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .page-header .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-bronze);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            color: var(--color-charcoal);
+        }
+
+        .page-header .subtitle {
+            font-size: 1.0625rem;
+            color: var(--color-grey-warm);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ── Base Package ── */
+        .base-package {
+            max-width: 900px;
+            margin: 0 auto 3.5rem;
+            padding: 0 2rem;
+        }
+
+        .base-card {
+            background: var(--color-charcoal);
+            color: var(--color-cream);
+            border-radius: 12px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .base-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(201,166,107,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .base-card .badge {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-bronze);
+            border: 1px solid rgba(201,166,107,0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .base-card h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .base-card .base-desc {
+            color: var(--color-grey-light);
+            font-size: 0.9375rem;
+            margin-bottom: 1.5rem;
+            max-width: 520px;
+            line-height: 1.8;
+        }
+
+        .base-card .base-includes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .base-card .base-includes span {
+            font-size: 0.8125rem;
+            color: var(--color-grey-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .base-card .base-includes span::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--color-bronze);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .base-card .base-price {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--color-cream);
+        }
+
+        .base-card .base-price span {
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            color: var(--color-grey-light);
+            font-weight: 400;
+        }
+
+        /* ── Sections ── */
+        .section {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .section-header p {
+            font-size: 0.875rem;
+            color: var(--color-grey-warm);
+        }
+
+        .section-divider {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .section-divider hr {
+            border: none;
+            height: 1px;
+            background: var(--color-ivory-dark);
+        }
+
+        /* ── Option Cards ── */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .option-card {
+            background: var(--color-ivory);
+            border: 1.5px solid var(--color-ivory-dark);
+            border-radius: 10px;
+            padding: 1.75rem;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-card:hover {
+            border-color: var(--color-grey-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+        }
+
+        .option-card.selected {
+            border-color: var(--color-bronze);
+            background: rgba(201,166,107,0.04);
+            box-shadow: 0 0 0 1px var(--color-bronze);
+        }
+
+        .option-card.selected .radio-dot::after {
+            transform: scale(1);
+        }
+
+        .option-card.selected .check-box svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .option-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .option-card-header h4 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .option-price {
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--color-bronze-dark);
+            white-space: nowrap;
+            background: rgba(201,166,107,0.1);
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+        }
+
+        .radio-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1.5px solid var(--color-grey-light);
+            flex-shrink: 0;
+            margin-top: 2px;
+            position: relative;
+            transition: border-color 0.25s ease;
+        }
+
+        .option-card.selected .radio-dot {
+            border-color: var(--color-bronze);
+        }
+
+        .radio-dot::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--color-bronze);
+            transform: scale(0);
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .check-box {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 1.5px solid var(--color-grey-light);
+            flex-shrink: 0;
+            margin-top: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+        }
+
+        .option-card.selected .check-box {
+            border-color: var(--color-bronze);
+            background: var(--color-bronze);
+        }
+
+        .check-box svg {
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .option-features {
+            list-style: none;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .option-features li {
+            font-size: 0.8125rem;
+            color: var(--color-grey-warm);
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .option-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 4px;
+            height: 4px;
+            background: var(--color-ivory-dark);
+            border-radius: 50%;
+        }
+
+        .option-card.selected .option-features li::before {
+            background: var(--color-bronze);
+        }
+
+        .option-benefit {
+            font-size: 0.8125rem;
+            font-style: italic;
+            color: var(--color-grey-warm);
+            border-top: 1px solid var(--color-ivory-dark);
+            padding-top: 1rem;
+            line-height: 1.6;
+        }
+
+        /* ── Retainer Section ── */
+        .retainer-included {
+            background: var(--color-ivory);
+            border: 1.5px solid var(--color-ivory-dark);
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .retainer-included .included-badge {
+            display: inline-block;
+            font-size: 0.625rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-bronze-dark);
+            background: rgba(201,166,107,0.12);
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+            margin-bottom: 0.75rem;
+        }
+
+        .retainer-included h4 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .retainer-included ul {
+            list-style: none;
+        }
+
+        .retainer-included li {
+            font-size: 0.8125rem;
+            color: var(--color-grey-warm);
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .retainer-included li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 4px;
+            height: 4px;
+            background: var(--color-bronze);
+            border-radius: 50%;
+        }
+
+        /* ── Sticky Total Bar ── */
+        .total-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--color-charcoal);
+            border-top: 1px solid rgba(201,166,107,0.15);
+            padding: 1.25rem 2rem;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+        }
+
+        .total-bar-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .total-amounts {
+            display: flex;
+            align-items: baseline;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .total-oneoff {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--color-cream);
+        }
+
+        .total-oneoff small {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            color: var(--color-grey-warm);
+            font-weight: 400;
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        .total-monthly {
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            color: var(--color-bronze-light);
+        }
+
+        .total-monthly small {
+            font-size: 0.75rem;
+            color: var(--color-grey-warm);
+            display: block;
+            margin-top: 0.15rem;
+        }
+
+        .download-btn {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-charcoal);
+            background: var(--color-bronze);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: var(--color-bronze-light);
+        }
+
+        /* ── Footer Note ── */
+        .footer-note {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding: 0 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--color-grey-light);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .page-header { padding: 3.5rem 1.5rem 2rem; }
+            .base-card { padding: 2rem; }
+            .section { padding: 0 1.5rem; margin-bottom: 2.5rem; }
+            .section-divider { padding: 0 1.5rem; margin-bottom: 2.5rem; }
+            .base-package { padding: 0 1.5rem; margin-bottom: 2.5rem; }
+            .options-grid { grid-template-columns: 1fr; }
+            .total-bar { padding: 1rem 1.5rem; }
+            .total-bar-inner { flex-direction: column; text-align: center; gap: 1rem; }
+            .total-amounts { justify-content: center; }
+            .download-btn { width: 100%; }
+            .footer-note { padding: 0 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="page-header">
+        <p class="eyebrow">Your Website</p>
+        <h1>Build Your Package</h1>
+        <p class="subtitle">Your base package is included below. Select the additional features that matter most to your business — each one is optional.</p>
+    </header>
+
+    <!-- Base Package -->
+    <div class="base-package">
+        <div class="base-card">
+            <span class="badge">Your Foundation</span>
+            <h2>Go Live</h2>
+            <p class="base-desc">Your complete website — refined with your final imagery and copy, fully optimised and launched on a fast, secure platform.</p>
+            <div class="base-includes">
+                <span>Your images &amp; copy throughout</span>
+                <span>Optimised for all devices</span>
+                <span>Fast, secure hosting</span>
+                <span>SSL certificate</span>
+                <span>Monthly support included</span>
+            </div>
+            <div class="base-price">£477 <span>one-off</span></div>
+        </div>
+    </div>
+
+    <!-- SEO -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Search Engine Optimisation</h3>
+            <p>Help customers find you on Google. Select one tier or skip for now.</p>
+        </div>
+        <div class="options-grid" data-category="seo" data-type="radio">
+
+            <div class="option-card" data-price="247" data-recurring="false" data-name="Basic On-Page SEO">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Basic</h4>
+                    </div>
+                    <span class="option-price">+£247</span>
+                </div>
+                <ul class="option-features">
+                    <li>Unique meta titles &amp; descriptions for every page</li>
+                    <li>Canonical links to prevent duplicate content</li>
+                    <li>Descriptive alt text on all images</li>
+                    <li>Clean heading hierarchy</li>
+                    <li>SEO-friendly URL structures</li>
+                    <li>XML sitemap &amp; robots.txt</li>
+                </ul>
+                <p class="option-benefit">Your site becomes discoverable by search engines and starts appearing in relevant results.</p>
+            </div>
+
+            <div class="option-card" data-price="497" data-recurring="false" data-name="Advanced On-Page SEO">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Advanced</h4>
+                    </div>
+                    <span class="option-price">+£497</span>
+                </div>
+                <ul class="option-features">
+                    <li>Everything in Basic, plus:</li>
+                    <li>Structured data for rich Google results</li>
+                    <li>Social sharing optimisation</li>
+                    <li>Internal linking strategy</li>
+                    <li>Keyword-optimised copy</li>
+                    <li>Performance &amp; speed optimisation</li>
+                    <li>Image optimisation (modern formats, lazy loading)</li>
+                    <li>Redirect mapping from any existing site</li>
+                </ul>
+                <p class="option-benefit">Stronger rankings, rich results in Google, faster load times, and a better experience that Google rewards.</p>
+            </div>
+
+            <div class="option-card" data-price="197" data-recurring="true" data-name="Ongoing SEO">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Ongoing</h4>
+                    </div>
+                    <span class="option-price">+£197/mo</span>
+                </div>
+                <ul class="option-features">
+                    <li>Monthly performance reporting</li>
+                    <li>Content recommendations based on trends</li>
+                    <li>Technical SEO health checks</li>
+                    <li>Competitor monitoring</li>
+                    <li>New page &amp; blog post optimisation</li>
+                </ul>
+                <p class="option-benefit">SEO isn't a one-off task. Ongoing attention keeps you climbing the rankings.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- Contact & Enquiry Forms -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Contact &amp; Enquiry Forms</h3>
+            <p>How you receive and manage enquiries from your website.</p>
+        </div>
+        <div class="options-grid" data-category="forms" data-type="forms">
+
+            <div class="option-card selected" data-price="0" data-recurring="false" data-name="Email Forwarding">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Email</h4>
+                    </div>
+                    <span class="option-price">Included</span>
+                </div>
+                <ul class="option-features">
+                    <li>Simple contact form</li>
+                    <li>Submissions sent directly to your inbox</li>
+                    <li>Spam protection</li>
+                    <li>Confirmation message on submission</li>
+                </ul>
+                <p class="option-benefit">Quick and straightforward. Enquiries land straight in your inbox.</p>
+            </div>
+
+            <div class="option-card" data-price="347" data-recurring="false" data-name="Database + Dashboard">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Database</h4>
+                    </div>
+                    <span class="option-price">+£347</span>
+                </div>
+                <ul class="option-features">
+                    <li>Custom fields tailored to your business</li>
+                    <li>Enquiries stored with a searchable dashboard</li>
+                    <li>Email notification on each submission</li>
+                    <li>Search, filter &amp; export enquiries</li>
+                    <li>File &amp; image upload support</li>
+                    <li>Advanced spam protection</li>
+                </ul>
+                <p class="option-benefit">Never lose an enquiry. Searchable history and structured data for better follow-up.</p>
+            </div>
+
+            <div class="option-card" data-price="697" data-recurring="false" data-name="CRM Integration">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>CRM</h4>
+                    </div>
+                    <span class="option-price">+£697</span>
+                </div>
+                <ul class="option-features">
+                    <li>Everything in Database, plus:</li>
+                    <li>Full CRM integration</li>
+                    <li>Automated lead status tracking</li>
+                    <li>Automated follow-up email sequences</li>
+                    <li>Pipeline &amp; funnel reporting</li>
+                    <li>Team assignment &amp; notes</li>
+                </ul>
+                <p class="option-benefit">Turns your website into a sales tool. No leads slip through the cracks.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- Analytics & Tracking -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Analytics &amp; Tracking</h3>
+            <p>Understand who visits your site and what they do.</p>
+        </div>
+        <div class="options-grid" data-category="analytics" data-type="radio">
+
+            <div class="option-card" data-price="127" data-recurring="false" data-name="Privacy-Friendly Analytics">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Privacy-Friendly</h4>
+                    </div>
+                    <span class="option-price">+£127</span>
+                </div>
+                <ul class="option-features">
+                    <li>Cookie-free visitor analytics</li>
+                    <li>Page views, referrers, top pages</li>
+                    <li>Device &amp; browser breakdown</li>
+                    <li>No cookie banner required</li>
+                    <li>GDPR compliant out of the box</li>
+                </ul>
+                <p class="option-benefit">Understand your traffic without cookie popups or privacy concerns.</p>
+            </div>
+
+            <div class="option-card" data-price="297" data-recurring="false" data-name="Full Marketing Analytics">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Full Marketing</h4>
+                    </div>
+                    <span class="option-price">+£297</span>
+                </div>
+                <ul class="option-features">
+                    <li>Google Analytics setup with custom events</li>
+                    <li>Conversion tracking (forms, phone clicks)</li>
+                    <li>Cookie consent management</li>
+                    <li>Goal &amp; funnel reporting</li>
+                    <li>Ad platform integration if needed</li>
+                </ul>
+                <p class="option-benefit">Detailed insight into what's working, what's converting, and where to spend.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- Legal & Compliance -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Legal &amp; Compliance</h3>
+            <p>Keep your site on the right side of UK regulations.</p>
+        </div>
+        <div class="options-grid" data-category="legal" data-type="radio">
+
+            <div class="option-card" data-price="127" data-recurring="false" data-name="Essential Legal Pages">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Essentials</h4>
+                    </div>
+                    <span class="option-price">+£127</span>
+                </div>
+                <ul class="option-features">
+                    <li>Privacy policy page</li>
+                    <li>Cookie policy (if applicable)</li>
+                    <li>Terms &amp; conditions page</li>
+                </ul>
+                <p class="option-benefit">Meets minimum legal requirements for operating a website in the UK.</p>
+            </div>
+
+            <div class="option-card" data-price="297" data-recurring="false" data-name="Full Compliance">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Full Compliance</h4>
+                    </div>
+                    <span class="option-price">+£297</span>
+                </div>
+                <ul class="option-features">
+                    <li>Everything in Essentials, plus:</li>
+                    <li>Cookie consent management platform</li>
+                    <li>Accessibility statement</li>
+                    <li>GDPR data request handling</li>
+                    <li>Compliance audit &amp; recommendations</li>
+                </ul>
+                <p class="option-benefit">Full confidence that your site meets GDPR, PECR, and accessibility regulations.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- Integrations -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Integrations &amp; Extras</h3>
+            <p>Add any combination of these to extend your site.</p>
+        </div>
+        <div class="options-grid" data-category="integrations" data-type="checkbox">
+
+            <div class="option-card" data-price="97" data-recurring="false" data-name="Social Media">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Social Media</h4>
+                    </div>
+                    <span class="option-price">+£97</span>
+                </div>
+                <ul class="option-features">
+                    <li>Social media links &amp; icons</li>
+                    <li>Instagram or social feed on site</li>
+                    <li>Rich link previews when shared</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="77" data-recurring="false" data-name="Maps & Location">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Maps &amp; Location</h4>
+                    </div>
+                    <span class="option-price">+£77</span>
+                </div>
+                <ul class="option-features">
+                    <li>Embedded interactive map</li>
+                    <li>Directions link</li>
+                    <li>Multiple location support</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="197" data-recurring="false" data-name="Email Marketing">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Email Marketing</h4>
+                    </div>
+                    <span class="option-price">+£197</span>
+                </div>
+                <ul class="option-features">
+                    <li>Newsletter signup form</li>
+                    <li>Mailing list integration</li>
+                    <li>Automated welcome email</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="247" data-recurring="false" data-name="Booking & Scheduling">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Booking &amp; Scheduling</h4>
+                    </div>
+                    <span class="option-price">+£247</span>
+                </div>
+                <ul class="option-features">
+                    <li>Online booking system</li>
+                    <li>Availability calendar</li>
+                    <li>Automated confirmations &amp; reminders</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="197" data-recurring="false" data-name="Live Chat / Chatbot">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Live Chat</h4>
+                    </div>
+                    <span class="option-price">+£197</span>
+                </div>
+                <ul class="option-features">
+                    <li>Chat widget on your site</li>
+                    <li>AI chatbot for common questions</li>
+                    <li>Office hours &amp; offline messages</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="177" data-recurring="false" data-name="Reviews & Testimonials">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Reviews &amp; Testimonials</h4>
+                    </div>
+                    <span class="option-price">+£177</span>
+                </div>
+                <ul class="option-features">
+                    <li>Google Reviews integration</li>
+                    <li>Testimonial showcase</li>
+                    <li>Star ratings in Google results</li>
+                </ul>
+            </div>
+
+            <div class="option-card" data-price="497" data-recurring="false" data-name="Multi-Language">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                        <h4>Multi-Language</h4>
+                    </div>
+                    <span class="option-price">+£497</span>
+                </div>
+                <ul class="option-features">
+                    <li>Full site translation</li>
+                    <li>Language switcher</li>
+                    <li>International SEO tags</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-divider"><hr></div>
+
+    <!-- Monthly Retainer -->
+    <div class="section">
+        <div class="section-header">
+            <h3>Monthly Support</h3>
+            <p>All sites require a monthly support plan. Choose the level that suits you.</p>
+        </div>
+
+        <div class="options-grid" data-category="retainer" data-type="retainer">
+
+            <div class="option-card selected" data-price="49.99" data-recurring="true" data-name="Standard Support">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Standard</h4>
+                    </div>
+                    <span class="option-price">£49.99/mo</span>
+                </div>
+                <ul class="option-features">
+                    <li>2 mini projects per month (up to 30 mins each)</li>
+                    <li>Use them or lose them — they don't roll over</li>
+                    <li>Text updates, image swaps, layout tweaks &amp; more</li>
+                    <li>Email support for questions &amp; requests</li>
+                </ul>
+                <p class="option-benefit">Your site stays current without the hassle of separate quotes for every small change.</p>
+            </div>
+
+            <div class="option-card" data-price="79" data-recurring="true" data-name="Premium Support">
+                <div class="option-card-header">
+                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
+                        <div class="radio-dot"></div>
+                        <h4>Premium</h4>
+                    </div>
+                    <span class="option-price">£79/mo</span>
+                </div>
+                <ul class="option-features">
+                    <li>Everything in Standard, plus:</li>
+                    <li>Monthly report: uptime, visitor stats &amp; leads</li>
+                    <li>Performance &amp; SEO health snapshot</li>
+                    <li>Actionable recommendations from your data</li>
+                    <li>Priority response time</li>
+                </ul>
+                <p class="option-benefit">Full visibility into how your site is performing — backed by data, not guesswork.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <p class="footer-note">All prices exclude VAT. One-off costs are payable on commencement. Monthly costs are billed on the 1st of each month.</p>
+
+    <!-- Sticky Total Bar -->
+    <div class="total-bar">
+        <div class="total-bar-inner">
+            <div class="total-amounts">
+                <div class="total-oneoff">
+                    <span id="total-oneoff">£477</span>
+                    <small>one-off</small>
+                </div>
+                <div class="total-monthly" id="monthly-wrap">
+                    <span id="total-monthly">+£0/mo</span>
+                    <small>monthly</small>
+                </div>
+            </div>
+            <button class="download-btn" onclick="downloadQuote()">Download Quote</button>
+        </div>
+    </div>
+
+    <script>
+        const BASE_PRICE = 477;
+
+        // Handle card selection
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const grid = card.closest('.options-grid');
+                const type = grid.dataset.type;
+
+                if (type === 'retainer' || type === 'forms') {
+                    // Required category — switch but never deselect
+                    grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                } else if (type === 'radio') {
+                    // If already selected, deselect
+                    if (card.classList.contains('selected')) {
+                        card.classList.remove('selected');
+                    } else {
+                        // Deselect siblings, select this one
+                        grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                        card.classList.add('selected');
+                    }
+                } else {
+                    // Checkbox — toggle independently
+                    card.classList.toggle('selected');
+                }
+
+                updateTotals();
+            });
+        });
+
+        function updateTotals() {
+            let oneOff = BASE_PRICE;
+            let monthly = 0;
+
+            document.querySelectorAll('.option-card.selected').forEach(card => {
+                const price = parseFloat(card.dataset.price);
+                const recurring = card.dataset.recurring === 'true';
+
+                if (recurring) {
+                    monthly += price;
+                } else {
+                    oneOff += price;
+                }
+            });
+
+            document.getElementById('total-oneoff').textContent = '£' + oneOff.toLocaleString();
+
+            const monthlyWrap = document.getElementById('monthly-wrap');
+            const monthlyFormatted = monthly % 1 === 0 ? '£' + monthly : '£' + monthly.toFixed(2);
+            document.getElementById('total-monthly').textContent = monthlyFormatted + '/mo';
+            monthlyWrap.style.display = '';
+        }
+
+        // Initialise totals (Standard retainer is pre-selected)
+        updateTotals();
+
+        function downloadQuote() {
+            const selections = [];
+            let oneOff = BASE_PRICE;
+            let monthly = 0;
+
+            document.querySelectorAll('.option-card.selected').forEach(card => {
+                const grid = card.closest('.options-grid');
+                const price = parseFloat(card.dataset.price);
+                const recurring = card.dataset.recurring === 'true';
+
+                selections.push({
+                    category: grid.dataset.category,
+                    option: card.dataset.name,
+                    price: price,
+                    type: recurring ? 'monthly' : 'one-off'
+                });
+
+                if (recurring) {
+                    monthly += price;
+                } else {
+                    oneOff += price;
+                }
+            });
+
+            const quote = {
+                date: new Date().toISOString().split('T')[0],
+                basePackage: {
+                    name: 'Go Live',
+                    price: BASE_PRICE,
+                    type: 'one-off'
+                },
+                selections: selections,
+                totals: {
+                    oneOff: oneOff,
+                    monthly: parseFloat(monthly.toFixed(2))
+                }
+            };
+
+            const blob = new Blob([JSON.stringify(quote, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'website-quote-' + quote.date + '.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+</body>
+</html>
