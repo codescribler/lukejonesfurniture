@@ -1,1068 +1,575 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Package</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Package Builder | Luke Jones Furniture</title>
 
-        :root {
-            --color-cream: #fffcf7;
-            --color-ivory: #faf8f5;
-            --color-ivory-dark: #e8e4dd;
-            --color-charcoal: #141414;
-            --color-charcoal-light: #1e1e1e;
-            --color-grey-warm: #8a857d;
-            --color-grey-light: #b5b0a8;
-            --color-bronze: #c9a66b;
-            --color-bronze-light: #dfc291;
-            --color-bronze-dark: #a8864d;
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
-        html { scroll-behavior: smooth; }
+  <style>
+    :root {
+      --color-black: #0a0a0a;
+      --color-charcoal: #141414;
+      --color-charcoal-light: #1e1e1e;
+      --color-charcoal-medium: #2a2a2a;
+      --color-ivory: #f5f2ed;
+      --color-cream: #fffcf7;
+      --color-bronze: #c9a66b;
+      --color-bronze-light: #dfc291;
+      --color-grey-warm: #8a857d;
+      --color-grey-light: #b5b0a8;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+    }
 
-        body {
-            font-family: var(--font-body);
-            background: var(--color-cream);
-            color: var(--color-charcoal);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            padding-bottom: 100px;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ── Header ── */
-        .page-header {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 5rem 2rem 3rem;
-            text-align: center;
-        }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-charcoal);
+      color: var(--color-ivory);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding-bottom: 160px;
+    }
 
-        .page-header .eyebrow {
-            font-family: var(--font-body);
-            font-size: 0.6875rem;
-            font-weight: 500;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--color-bronze);
-            margin-bottom: 1.5rem;
-        }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 2rem;
+    }
 
-        .page-header h1 {
-            font-family: var(--font-display);
-            font-size: clamp(2.25rem, 5vw, 3.5rem);
-            font-weight: 400;
-            line-height: 1.15;
-            margin-bottom: 1.25rem;
-            color: var(--color-charcoal);
-        }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color 0.2s ease;
+    }
 
-        .page-header .subtitle {
-            font-size: 1.0625rem;
-            color: var(--color-grey-warm);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
+    .back-link:hover { color: var(--color-bronze); }
 
-        /* ── Base Package ── */
-        .base-package {
-            max-width: 900px;
-            margin: 0 auto 3.5rem;
-            padding: 0 2rem;
-        }
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-        .base-card {
-            background: var(--color-charcoal);
-            color: var(--color-cream);
-            border-radius: 12px;
-            padding: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
 
-        .base-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(201,166,107,0.15) 0%, transparent 70%);
-            pointer-events: none;
-        }
+    .page-header p {
+      color: var(--color-grey-warm);
+      font-size: 0.9375rem;
+    }
 
-        .base-card .badge {
-            display: inline-block;
-            font-size: 0.625rem;
-            font-weight: 600;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--color-bronze);
-            border: 1px solid rgba(201,166,107,0.3);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-        }
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-bronze);
+      margin-bottom: 0.75rem;
+    }
 
-        .base-card h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
-            font-weight: 400;
-            margin-bottom: 0.75rem;
-        }
+    /* Sections */
+    .config-section {
+      margin-bottom: 2.5rem;
+    }
 
-        .base-card .base-desc {
-            color: var(--color-grey-light);
-            font-size: 0.9375rem;
-            margin-bottom: 1.5rem;
-            max-width: 520px;
-            line-height: 1.8;
-        }
+    .config-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-charcoal-medium);
+    }
 
-        .base-card .base-includes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1.5rem;
-            margin-bottom: 2rem;
-        }
+    .config-section h2 .hint {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--color-grey-warm);
+      letter-spacing: 0;
+      text-transform: none;
+    }
 
-        .base-card .base-includes span {
-            font-size: 0.8125rem;
-            color: var(--color-grey-light);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    /* Fixed build row */
+    .build-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      background-color: var(--color-charcoal-light);
+      border-left: 2px solid var(--color-bronze);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
 
-        .base-card .base-includes span::before {
-            content: '';
-            width: 5px;
-            height: 5px;
-            background: var(--color-bronze);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
+    .build-row span:first-child { font-size: 0.9375rem; }
 
-        .base-card .base-price {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: var(--color-cream);
-        }
+    .build-row .price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-bronze);
+    }
 
-        .base-card .base-price span {
-            font-family: var(--font-body);
-            font-size: 0.875rem;
-            color: var(--color-grey-light);
-            font-weight: 400;
-        }
+    .build-row .price-was {
+      text-decoration: line-through;
+      color: var(--color-grey-warm);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      margin-right: 0.5rem;
+    }
 
-        /* ── Sections ── */
-        .section {
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            padding: 0 2rem;
-        }
+    /* Option cards */
+    .option-group { display: grid; gap: 0.75rem; }
 
-        .section-header {
-            margin-bottom: 1.5rem;
-        }
+    .option-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background-color: var(--color-charcoal-light);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
 
-        .section-header h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-            font-weight: 400;
-            margin-bottom: 0.25rem;
-        }
+    .option-card:hover { background-color: var(--color-charcoal-medium); }
 
-        .section-header p {
-            font-size: 0.875rem;
-            color: var(--color-grey-warm);
-        }
+    .option-card.selected {
+      border-color: var(--color-bronze);
+      background-color: rgba(201, 166, 107, 0.06);
+    }
 
-        .section-divider {
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            padding: 0 2rem;
-        }
+    .option-card input { display: none; }
 
-        .section-divider hr {
-            border: none;
-            height: 1px;
-            background: var(--color-ivory-dark);
-        }
+    .option-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--color-grey-warm);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+      transition: all 0.2s ease;
+    }
 
-        /* ── Option Cards ── */
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
+    .option-card[data-type="radio"] .option-check { border-radius: 50%; }
 
-        .option-card {
-            background: var(--color-ivory);
-            border: 1.5px solid var(--color-ivory-dark);
-            border-radius: 10px;
-            padding: 1.75rem;
-            cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
+    .option-card.selected .option-check {
+      border-color: var(--color-bronze);
+      background-color: var(--color-bronze);
+    }
 
-        .option-card:hover {
-            border-color: var(--color-grey-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-        }
+    .option-check svg {
+      width: 12px;
+      height: 12px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
 
-        .option-card.selected {
-            border-color: var(--color-bronze);
-            background: rgba(201,166,107,0.04);
-            box-shadow: 0 0 0 1px var(--color-bronze);
-        }
+    .option-card.selected .option-check svg { opacity: 1; }
 
-        .option-card.selected .radio-dot::after {
-            transform: scale(1);
-        }
+    .option-info { flex: 1; min-width: 0; }
 
-        .option-card.selected .check-box svg {
-            opacity: 1;
-            transform: scale(1);
-        }
+    .option-name { font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
 
-        .option-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            gap: 1rem;
-        }
+    .option-desc {
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+      line-height: 1.5;
+    }
 
-        .option-card-header h4 {
-            font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 500;
-        }
+    .option-price {
+      flex-shrink: 0;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-bronze);
+      white-space: nowrap;
+    }
 
-        .option-price {
-            font-family: var(--font-body);
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: var(--color-bronze-dark);
-            white-space: nowrap;
-            background: rgba(201,166,107,0.1);
-            padding: 0.3rem 0.75rem;
-            border-radius: 100px;
-        }
+    .option-price span {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--color-grey-warm);
+    }
 
-        .radio-dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            border: 1.5px solid var(--color-grey-light);
-            flex-shrink: 0;
-            margin-top: 2px;
-            position: relative;
-            transition: border-color 0.25s ease;
-        }
+    /* Sticky summary */
+    .summary {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-black);
+      border-top: 1px solid var(--color-charcoal-medium);
+      padding: 1.25rem 1.5rem;
+      z-index: 10;
+    }
 
-        .option-card.selected .radio-dot {
-            border-color: var(--color-bronze);
-        }
+    .summary-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-        .radio-dot::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            left: 3px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--color-bronze);
-            transform: scale(0);
-            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+    .summary-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
 
-        .check-box {
-            width: 18px;
-            height: 18px;
-            border-radius: 4px;
-            border: 1.5px solid var(--color-grey-light);
-            flex-shrink: 0;
-            margin-top: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-        }
+    .summary-lines { flex: 1; }
 
-        .option-card.selected .check-box {
-            border-color: var(--color-bronze);
-            background: var(--color-bronze);
-        }
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8125rem;
+      color: var(--color-grey-light);
+      padding: 0.2rem 0;
+    }
 
-        .check-box svg {
-            width: 10px;
-            height: 10px;
-            opacity: 0;
-            transform: scale(0);
-            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-        }
+    .summary-line.empty {
+      color: var(--color-grey-warm);
+      font-style: italic;
+    }
 
-        .option-features {
-            list-style: none;
-            margin-bottom: 1.25rem;
-            flex: 1;
-        }
+    .summary-totals { text-align: right; flex-shrink: 0; }
 
-        .option-features li {
-            font-size: 0.8125rem;
-            color: var(--color-grey-warm);
-            padding: 0.2rem 0;
-            padding-left: 1rem;
-            position: relative;
-            line-height: 1.6;
-        }
+    .summary-oneoff {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--color-ivory);
+    }
 
-        .option-features li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55rem;
-            width: 4px;
-            height: 4px;
-            background: var(--color-ivory-dark);
-            border-radius: 50%;
-        }
+    .summary-oneoff-label {
+      font-size: 0.6875rem;
+      color: var(--color-grey-warm);
+      margin-bottom: 0.25rem;
+    }
 
-        .option-card.selected .option-features li::before {
-            background: var(--color-bronze);
-        }
+    .summary-monthly {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      color: var(--color-bronze);
+    }
 
-        .option-benefit {
-            font-size: 0.8125rem;
-            font-style: italic;
-            color: var(--color-grey-warm);
-            border-top: 1px solid var(--color-ivory-dark);
-            padding-top: 1rem;
-            line-height: 1.6;
-        }
+    .summary-monthly-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      color: var(--color-grey-warm);
+    }
 
-        /* ── Retainer Section ── */
-        .retainer-included {
-            background: var(--color-ivory);
-            border: 1.5px solid var(--color-ivory-dark);
-            border-radius: 10px;
-            padding: 1.75rem;
-            margin-bottom: 1rem;
-        }
+    .summary-actions {
+      display: flex;
+      gap: 0.75rem;
+    }
 
-        .retainer-included .included-badge {
-            display: inline-block;
-            font-size: 0.625rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-bronze-dark);
-            background: rgba(201,166,107,0.12);
-            padding: 0.3rem 0.75rem;
-            border-radius: 100px;
-            margin-bottom: 0.75rem;
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      flex: 1;
+      text-align: center;
+      color: inherit;
+    }
 
-        .retainer-included h4 {
-            font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
+    .btn--primary {
+      background-color: var(--color-bronze);
+      color: var(--color-charcoal);
+    }
 
-        .retainer-included ul {
-            list-style: none;
-        }
+    .btn--primary:hover { background-color: var(--color-bronze-light); }
 
-        .retainer-included li {
-            font-size: 0.8125rem;
-            color: var(--color-grey-warm);
-            padding: 0.2rem 0;
-            padding-left: 1rem;
-            position: relative;
-            line-height: 1.6;
-        }
+    .btn--secondary {
+      background-color: transparent;
+      color: var(--color-ivory);
+      border: 1px solid var(--color-charcoal-medium);
+    }
 
-        .retainer-included li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.55rem;
-            width: 4px;
-            height: 4px;
-            background: var(--color-bronze);
-            border-radius: 50%;
-        }
+    .btn--secondary:hover { border-color: var(--color-grey-warm); }
 
-        /* ── Sticky Total Bar ── */
-        .total-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--color-charcoal);
-            border-top: 1px solid rgba(201,166,107,0.15);
-            padding: 1.25rem 2rem;
-            z-index: 100;
-            backdrop-filter: blur(20px);
-        }
+    .btn svg { width: 14px; height: 14px; }
 
-        .total-bar-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
-        }
-
-        .total-amounts {
-            display: flex;
-            align-items: baseline;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .total-oneoff {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--color-cream);
-        }
-
-        .total-oneoff small {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            color: var(--color-grey-warm);
-            font-weight: 400;
-            display: block;
-            margin-top: 0.15rem;
-        }
-
-        .total-monthly {
-            font-family: var(--font-body);
-            font-size: 0.9375rem;
-            color: var(--color-bronze-light);
-        }
-
-        .total-monthly small {
-            font-size: 0.75rem;
-            color: var(--color-grey-warm);
-            display: block;
-            margin-top: 0.15rem;
-        }
-
-        .download-btn {
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-charcoal);
-            background: var(--color-bronze);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .download-btn:hover {
-            background: var(--color-bronze-light);
-        }
-
-        /* ── Footer Note ── */
-        .footer-note {
-            max-width: 900px;
-            margin: 2rem auto 0;
-            padding: 0 2rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--color-grey-light);
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 768px) {
-            .page-header { padding: 3.5rem 1.5rem 2rem; }
-            .base-card { padding: 2rem; }
-            .section { padding: 0 1.5rem; margin-bottom: 2.5rem; }
-            .section-divider { padding: 0 1.5rem; margin-bottom: 2.5rem; }
-            .base-package { padding: 0 1.5rem; margin-bottom: 2.5rem; }
-            .options-grid { grid-template-columns: 1fr; }
-            .total-bar { padding: 1rem 1.5rem; }
-            .total-bar-inner { flex-direction: column; text-align: center; gap: 1rem; }
-            .total-amounts { justify-content: center; }
-            .download-btn { width: 100%; }
-            .footer-note { padding: 0 1.5rem; }
-        }
-    </style>
+    @media (max-width: 640px) {
+      .summary-top { flex-direction: column; gap: 0.75rem; }
+      .summary-totals { text-align: left; display: flex; gap: 1.5rem; align-items: baseline; }
+      .option-card { flex-wrap: wrap; }
+      .option-price { width: 100%; padding-left: 2.35rem; margin-top: 0.25rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="page-header">
-        <p class="eyebrow">Your Website</p>
-        <h1>Build Your Package</h1>
-        <p class="subtitle">Your base package is included below. Select the additional features that matter most to your business — each one is optional.</p>
-    </header>
+  <div class="page">
+    <a href="proposal.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to proposal
+    </a>
 
-    <!-- Base Package -->
-    <div class="base-package">
-        <div class="base-card">
-            <span class="badge">Your Foundation</span>
-            <h2>Go Live</h2>
-            <p class="base-desc">Your complete website — refined with your final imagery and copy, fully optimised and launched on a fast, secure platform.</p>
-            <div class="base-includes">
-                <span>Your images &amp; copy throughout</span>
-                <span>Optimised for all devices</span>
-                <span>Fast, secure hosting</span>
-                <span>SSL certificate</span>
-                <span>Monthly support included</span>
-            </div>
-            <div class="base-price">£477 <span>one-off</span></div>
-        </div>
+    <div class="page-header">
+      <span class="eyebrow">Luke Jones Furniture</span>
+      <h1>Build Your Package</h1>
+      <p>Select your options below. The investment updates as you go.</p>
     </div>
 
-    <!-- SEO -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Search Engine Optimisation</h3>
-            <p>Help customers find you on Google. Select one tier or skip for now.</p>
-        </div>
-        <div class="options-grid" data-category="seo" data-type="radio">
-
-            <div class="option-card" data-price="247" data-recurring="false" data-name="Basic On-Page SEO">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Basic</h4>
-                    </div>
-                    <span class="option-price">+£247</span>
-                </div>
-                <ul class="option-features">
-                    <li>Unique meta titles &amp; descriptions for every page</li>
-                    <li>Canonical links to prevent duplicate content</li>
-                    <li>Descriptive alt text on all images</li>
-                    <li>Clean heading hierarchy</li>
-                    <li>SEO-friendly URL structures</li>
-                    <li>XML sitemap &amp; robots.txt</li>
-                </ul>
-                <p class="option-benefit">Your site becomes discoverable by search engines and starts appearing in relevant results.</p>
-            </div>
-
-            <div class="option-card" data-price="497" data-recurring="false" data-name="Advanced On-Page SEO">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Advanced</h4>
-                    </div>
-                    <span class="option-price">+£497</span>
-                </div>
-                <ul class="option-features">
-                    <li>Everything in Basic, plus:</li>
-                    <li>Structured data for rich Google results</li>
-                    <li>Social sharing optimisation</li>
-                    <li>Internal linking strategy</li>
-                    <li>Keyword-optimised copy</li>
-                    <li>Performance &amp; speed optimisation</li>
-                    <li>Image optimisation (modern formats, lazy loading)</li>
-                    <li>Redirect mapping from any existing site</li>
-                </ul>
-                <p class="option-benefit">Stronger rankings, rich results in Google, faster load times, and a better experience that Google rewards.</p>
-            </div>
-
-            <div class="option-card" data-price="197" data-recurring="true" data-name="Ongoing SEO">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Ongoing</h4>
-                    </div>
-                    <span class="option-price">+£197/mo</span>
-                </div>
-                <ul class="option-features">
-                    <li>Monthly performance reporting</li>
-                    <li>Content recommendations based on trends</li>
-                    <li>Technical SEO health checks</li>
-                    <li>Competitor monitoring</li>
-                    <li>New page &amp; blog post optimisation</li>
-                </ul>
-                <p class="option-benefit">SEO isn't a one-off task. Ongoing attention keeps you climbing the rankings.</p>
-            </div>
-
-        </div>
+    <!-- Website Build (fixed) -->
+    <div class="config-section">
+      <h2>Website Build</h2>
+      <div class="build-row">
+        <span>Complete rebuild &mdash; StoryBrand copy, Next.js, SEO, analytics &amp; hosting</span>
+        <span class="price"><span class="price-was">&pound;2,000</span> &pound;500</span>
+      </div>
     </div>
 
-    <div class="section-divider"><hr></div>
+    <!-- Monthly Package (pick one) -->
+    <div class="config-section">
+      <h2>Monthly Package <span class="hint">(choose one)</span></h2>
+      <div class="option-group" id="packageGroup">
 
-    <!-- Contact & Enquiry Forms -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Contact &amp; Enquiry Forms</h3>
-            <p>How you receive and manage enquiries from your website.</p>
-        </div>
-        <div class="options-grid" data-category="forms" data-type="forms">
+        <label class="option-card selected" data-type="radio" data-name="Foundation" data-price="50">
+          <input type="radio" name="package" value="foundation" checked>
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">Foundation &mdash; &pound;50/mo</div>
+            <div class="option-desc">Hosting, security, backups &amp; 1 monthly tweak (use it or lose it). Hassle-free &mdash; we handle everything technical.</div>
+          </div>
+          <div class="option-price">&pound;50 <span>/mo</span></div>
+        </label>
 
-            <div class="option-card selected" data-price="0" data-recurring="false" data-name="Email Forwarding">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Email</h4>
-                    </div>
-                    <span class="option-price">Included</span>
-                </div>
-                <ul class="option-features">
-                    <li>Simple contact form</li>
-                    <li>Submissions sent directly to your inbox</li>
-                    <li>Spam protection</li>
-                    <li>Confirmation message on submission</li>
-                </ul>
-                <p class="option-benefit">Quick and straightforward. Enquiries land straight in your inbox.</p>
-            </div>
+        <label class="option-card" data-type="radio" data-name="Growth" data-price="107">
+          <input type="radio" name="package" value="growth">
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">Growth &mdash; &pound;107/mo</div>
+            <div class="option-desc">Everything in Foundation plus 3 monthly tweaks, a monthly performance report in plain English, and a quarterly strategy call to plan what's next.</div>
+          </div>
+          <div class="option-price">&pound;107 <span>/mo</span></div>
+        </label>
 
-            <div class="option-card" data-price="347" data-recurring="false" data-name="Database + Dashboard">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Database</h4>
-                    </div>
-                    <span class="option-price">+£347</span>
-                </div>
-                <ul class="option-features">
-                    <li>Custom fields tailored to your business</li>
-                    <li>Enquiries stored with a searchable dashboard</li>
-                    <li>Email notification on each submission</li>
-                    <li>Search, filter &amp; export enquiries</li>
-                    <li>File &amp; image upload support</li>
-                    <li>Advanced spam protection</li>
-                </ul>
-                <p class="option-benefit">Never lose an enquiry. Searchable history and structured data for better follow-up.</p>
-            </div>
+        <label class="option-card" data-type="radio" data-name="Accelerator" data-price="297">
+          <input type="radio" name="package" value="accelerator">
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">Accelerator &mdash; &pound;297/mo</div>
+            <div class="option-desc">We actively manage your content, test what works best, and build email sequences that nurture visitors into consultation bookings. Your website becomes a growth engine.</div>
+          </div>
+          <div class="option-price">&pound;297 <span>/mo</span></div>
+        </label>
 
-            <div class="option-card" data-price="697" data-recurring="false" data-name="CRM Integration">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>CRM</h4>
-                    </div>
-                    <span class="option-price">+£697</span>
-                </div>
-                <ul class="option-features">
-                    <li>Everything in Database, plus:</li>
-                    <li>Full CRM integration</li>
-                    <li>Automated lead status tracking</li>
-                    <li>Automated follow-up email sequences</li>
-                    <li>Pipeline &amp; funnel reporting</li>
-                    <li>Team assignment &amp; notes</li>
-                </ul>
-                <p class="option-benefit">Turns your website into a sales tool. No leads slip through the cracks.</p>
-            </div>
-
-        </div>
+      </div>
     </div>
 
-    <div class="section-divider"><hr></div>
+    <!-- Add-ons (toggle any) -->
+    <div class="config-section">
+      <h2>Add-Ons <span class="hint">(select any)</span></h2>
+      <div class="option-group" id="addonsGroup">
 
-    <!-- Analytics & Tracking -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Analytics &amp; Tracking</h3>
-            <p>Understand who visits your site and what they do.</p>
-        </div>
-        <div class="options-grid" data-category="analytics" data-type="radio">
+        <label class="option-card" data-type="checkbox" data-name="Smart Follow-Up (CRM)" data-price="21">
+          <input type="checkbox" name="addon" value="crm">
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">Smart Follow-Up &mdash; &pound;21/mo</div>
+            <div class="option-desc">Every enquiry automatically logged, followed up and tracked. See exactly who's interested, who needs a nudge, and who's ready to go. No more forgotten leads.</div>
+          </div>
+          <div class="option-price">&pound;21 <span>/mo</span></div>
+        </label>
 
-            <div class="option-card" data-price="127" data-recurring="false" data-name="Privacy-Friendly Analytics">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Privacy-Friendly</h4>
-                    </div>
-                    <span class="option-price">+£127</span>
-                </div>
-                <ul class="option-features">
-                    <li>Cookie-free visitor analytics</li>
-                    <li>Page views, referrers, top pages</li>
-                    <li>Device &amp; browser breakdown</li>
-                    <li>No cookie banner required</li>
-                    <li>GDPR compliant out of the box</li>
-                </ul>
-                <p class="option-benefit">Understand your traffic without cookie popups or privacy concerns.</p>
-            </div>
+        <label class="option-card" data-type="checkbox" data-name="AI Concierge" data-price="21">
+          <input type="checkbox" name="addon" value="concierge">
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">AI Concierge &mdash; &pound;21/mo</div>
+            <div class="option-desc">A 24/7 assistant on your website that answers questions, shares your portfolio and guides visitors toward booking &mdash; even while you're in the workshop.</div>
+          </div>
+          <div class="option-price">&pound;21 <span>/mo</span></div>
+        </label>
 
-            <div class="option-card" data-price="297" data-recurring="false" data-name="Full Marketing Analytics">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Full Marketing</h4>
-                    </div>
-                    <span class="option-price">+£297</span>
-                </div>
-                <ul class="option-features">
-                    <li>Google Analytics setup with custom events</li>
-                    <li>Conversion tracking (forms, phone clicks)</li>
-                    <li>Cookie consent management</li>
-                    <li>Goal &amp; funnel reporting</li>
-                    <li>Ad platform integration if needed</li>
-                </ul>
-                <p class="option-benefit">Detailed insight into what's working, what's converting, and where to spend.</p>
-            </div>
+        <label class="option-card" data-type="checkbox" data-name="Local Growth (SEO)" data-price="200">
+          <input type="checkbox" name="addon" value="seo">
+          <div class="option-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
+          </div>
+          <div class="option-info">
+            <div class="option-name">Local Growth &mdash; &pound;200/mo</div>
+            <div class="option-desc">Ongoing SEO campaign: location-targeted content, Google Business profile tuning, and a clear monthly report showing your progress up the rankings.</div>
+          </div>
+          <div class="option-price">&pound;200 <span>/mo</span></div>
+        </label>
 
-        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="section-divider"><hr></div>
-
-    <!-- Legal & Compliance -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Legal &amp; Compliance</h3>
-            <p>Keep your site on the right side of UK regulations.</p>
+  <!-- Sticky Summary -->
+  <div class="summary">
+    <div class="summary-inner">
+      <div class="summary-top">
+        <div class="summary-lines" id="summaryLines"></div>
+        <div class="summary-totals">
+          <div class="summary-oneoff" id="totalOneoff">&pound;500</div>
+          <div class="summary-oneoff-label">one-off</div>
+          <div class="summary-monthly">+ <span id="totalMonthly">&pound;50</span> <span class="summary-monthly-label">/mo</span></div>
         </div>
-        <div class="options-grid" data-category="legal" data-type="radio">
-
-            <div class="option-card" data-price="127" data-recurring="false" data-name="Essential Legal Pages">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Essentials</h4>
-                    </div>
-                    <span class="option-price">+£127</span>
-                </div>
-                <ul class="option-features">
-                    <li>Privacy policy page</li>
-                    <li>Cookie policy (if applicable)</li>
-                    <li>Terms &amp; conditions page</li>
-                </ul>
-                <p class="option-benefit">Meets minimum legal requirements for operating a website in the UK.</p>
-            </div>
-
-            <div class="option-card" data-price="297" data-recurring="false" data-name="Full Compliance">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Full Compliance</h4>
-                    </div>
-                    <span class="option-price">+£297</span>
-                </div>
-                <ul class="option-features">
-                    <li>Everything in Essentials, plus:</li>
-                    <li>Cookie consent management platform</li>
-                    <li>Accessibility statement</li>
-                    <li>GDPR data request handling</li>
-                    <li>Compliance audit &amp; recommendations</li>
-                </ul>
-                <p class="option-benefit">Full confidence that your site meets GDPR, PECR, and accessibility regulations.</p>
-            </div>
-
-        </div>
+      </div>
+      <div class="summary-actions">
+        <button class="btn btn--secondary" onclick="downloadJSON()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Save JSON
+        </button>
+        <a class="btn btn--primary" id="emailBtn" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Summary
+        </a>
+      </div>
     </div>
+  </div>
 
-    <div class="section-divider"><hr></div>
+  <script>
+    const BUILD_COST = 500;
 
-    <!-- Integrations -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Integrations &amp; Extras</h3>
-            <p>Add any combination of these to extend your site.</p>
-        </div>
-        <div class="options-grid" data-category="integrations" data-type="checkbox">
+    function getSelections() {
+      const pkgCard = document.querySelector('#packageGroup .option-card.selected');
+      const pkg = { name: pkgCard.dataset.name, price: parseInt(pkgCard.dataset.price) };
 
-            <div class="option-card" data-price="97" data-recurring="false" data-name="Social Media">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Social Media</h4>
-                    </div>
-                    <span class="option-price">+£97</span>
-                </div>
-                <ul class="option-features">
-                    <li>Social media links &amp; icons</li>
-                    <li>Instagram or social feed on site</li>
-                    <li>Rich link previews when shared</li>
-                </ul>
-            </div>
+      const addons = [];
+      document.querySelectorAll('#addonsGroup .option-card.selected').forEach(function(card) {
+        addons.push({ name: card.dataset.name, price: parseInt(card.dataset.price) });
+      });
 
-            <div class="option-card" data-price="77" data-recurring="false" data-name="Maps & Location">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Maps &amp; Location</h4>
-                    </div>
-                    <span class="option-price">+£77</span>
-                </div>
-                <ul class="option-features">
-                    <li>Embedded interactive map</li>
-                    <li>Directions link</li>
-                    <li>Multiple location support</li>
-                </ul>
-            </div>
+      var monthlyTotal = pkg.price + addons.reduce(function(sum, a) { return sum + a.price; }, 0);
 
-            <div class="option-card" data-price="197" data-recurring="false" data-name="Email Marketing">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Email Marketing</h4>
-                    </div>
-                    <span class="option-price">+£197</span>
-                </div>
-                <ul class="option-features">
-                    <li>Newsletter signup form</li>
-                    <li>Mailing list integration</li>
-                    <li>Automated welcome email</li>
-                </ul>
-            </div>
+      return {
+        client: 'Luke Jones Furniture',
+        date: new Date().toISOString().split('T')[0],
+        build: { name: 'Website Rebuild', price: BUILD_COST },
+        package: pkg,
+        addons: addons,
+        totals: { oneOff: BUILD_COST, monthly: monthlyTotal }
+      };
+    }
 
-            <div class="option-card" data-price="247" data-recurring="false" data-name="Booking & Scheduling">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Booking &amp; Scheduling</h4>
-                    </div>
-                    <span class="option-price">+£247</span>
-                </div>
-                <ul class="option-features">
-                    <li>Online booking system</li>
-                    <li>Availability calendar</li>
-                    <li>Automated confirmations &amp; reminders</li>
-                </ul>
-            </div>
+    function updateSummary() {
+      var sel = getSelections();
+      var lines = document.getElementById('summaryLines');
+      var html = '';
 
-            <div class="option-card" data-price="197" data-recurring="false" data-name="Live Chat / Chatbot">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Live Chat</h4>
-                    </div>
-                    <span class="option-price">+£197</span>
-                </div>
-                <ul class="option-features">
-                    <li>Chat widget on your site</li>
-                    <li>AI chatbot for common questions</li>
-                    <li>Office hours &amp; offline messages</li>
-                </ul>
-            </div>
+      html += '<div class="summary-line"><span>Website build</span><span>\u00A3' + sel.build.price + '</span></div>';
+      html += '<div class="summary-line"><span>' + sel.package.name + ' package</span><span>\u00A3' + sel.package.price + '/mo</span></div>';
 
-            <div class="option-card" data-price="177" data-recurring="false" data-name="Reviews & Testimonials">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Reviews &amp; Testimonials</h4>
-                    </div>
-                    <span class="option-price">+£177</span>
-                </div>
-                <ul class="option-features">
-                    <li>Google Reviews integration</li>
-                    <li>Testimonial showcase</li>
-                    <li>Star ratings in Google results</li>
-                </ul>
-            </div>
+      sel.addons.forEach(function(a) {
+        html += '<div class="summary-line"><span>' + a.name + '</span><span>\u00A3' + a.price + '/mo</span></div>';
+      });
 
-            <div class="option-card" data-price="497" data-recurring="false" data-name="Multi-Language">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="check-box"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l2.5 2.5L9 1" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                        <h4>Multi-Language</h4>
-                    </div>
-                    <span class="option-price">+£497</span>
-                </div>
-                <ul class="option-features">
-                    <li>Full site translation</li>
-                    <li>Language switcher</li>
-                    <li>International SEO tags</li>
-                </ul>
-            </div>
+      if (sel.addons.length === 0) {
+        html += '<div class="summary-line empty"><span>No add-ons selected</span><span></span></div>';
+      }
 
-        </div>
-    </div>
+      lines.innerHTML = html;
+      document.getElementById('totalOneoff').textContent = '\u00A3' + sel.totals.oneOff;
+      document.getElementById('totalMonthly').textContent = '\u00A3' + sel.totals.monthly;
 
-    <div class="section-divider"><hr></div>
+      // Build mailto
+      var subject = encodeURIComponent('Luke Jones Furniture - Package Selection');
+      var bodyLines = [
+        'LUKE JONES FURNITURE - SELECTED PACKAGE',
+        '========================================',
+        '',
+        'Website Build: \u00A3' + sel.build.price + ' (one-off)',
+        '',
+        'Monthly Package: ' + sel.package.name + ' - \u00A3' + sel.package.price + '/mo'
+      ];
 
-    <!-- Monthly Retainer -->
-    <div class="section">
-        <div class="section-header">
-            <h3>Monthly Support</h3>
-            <p>All sites require a monthly support plan. Choose the level that suits you.</p>
-        </div>
-
-        <div class="options-grid" data-category="retainer" data-type="retainer">
-
-            <div class="option-card selected" data-price="49.99" data-recurring="true" data-name="Standard Support">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Standard</h4>
-                    </div>
-                    <span class="option-price">£49.99/mo</span>
-                </div>
-                <ul class="option-features">
-                    <li>2 mini projects per month (up to 30 mins each)</li>
-                    <li>Use them or lose them — they don't roll over</li>
-                    <li>Text updates, image swaps, layout tweaks &amp; more</li>
-                    <li>Email support for questions &amp; requests</li>
-                </ul>
-                <p class="option-benefit">Your site stays current without the hassle of separate quotes for every small change.</p>
-            </div>
-
-            <div class="option-card" data-price="79" data-recurring="true" data-name="Premium Support">
-                <div class="option-card-header">
-                    <div style="display:flex;gap:0.75rem;align-items:flex-start">
-                        <div class="radio-dot"></div>
-                        <h4>Premium</h4>
-                    </div>
-                    <span class="option-price">£79/mo</span>
-                </div>
-                <ul class="option-features">
-                    <li>Everything in Standard, plus:</li>
-                    <li>Monthly report: uptime, visitor stats &amp; leads</li>
-                    <li>Performance &amp; SEO health snapshot</li>
-                    <li>Actionable recommendations from your data</li>
-                    <li>Priority response time</li>
-                </ul>
-                <p class="option-benefit">Full visibility into how your site is performing — backed by data, not guesswork.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <p class="footer-note">All prices exclude VAT. One-off costs are payable on commencement. Monthly costs are billed on the 1st of each month.</p>
-
-    <!-- Sticky Total Bar -->
-    <div class="total-bar">
-        <div class="total-bar-inner">
-            <div class="total-amounts">
-                <div class="total-oneoff">
-                    <span id="total-oneoff">£477</span>
-                    <small>one-off</small>
-                </div>
-                <div class="total-monthly" id="monthly-wrap">
-                    <span id="total-monthly">+£0/mo</span>
-                    <small>monthly</small>
-                </div>
-            </div>
-            <button class="download-btn" onclick="downloadQuote()">Download Quote</button>
-        </div>
-    </div>
-
-    <script>
-        const BASE_PRICE = 477;
-
-        // Handle card selection
-        document.querySelectorAll('.option-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const grid = card.closest('.options-grid');
-                const type = grid.dataset.type;
-
-                if (type === 'retainer' || type === 'forms') {
-                    // Required category — switch but never deselect
-                    grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
-                    card.classList.add('selected');
-                } else if (type === 'radio') {
-                    // If already selected, deselect
-                    if (card.classList.contains('selected')) {
-                        card.classList.remove('selected');
-                    } else {
-                        // Deselect siblings, select this one
-                        grid.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
-                        card.classList.add('selected');
-                    }
-                } else {
-                    // Checkbox — toggle independently
-                    card.classList.toggle('selected');
-                }
-
-                updateTotals();
-            });
+      if (sel.addons.length > 0) {
+        bodyLines.push('');
+        bodyLines.push('Add-ons:');
+        sel.addons.forEach(function(a) {
+          bodyLines.push('  - ' + a.name + ': \u00A3' + a.price + '/mo');
         });
+      }
 
-        function updateTotals() {
-            let oneOff = BASE_PRICE;
-            let monthly = 0;
+      bodyLines.push('');
+      bodyLines.push('----------------------------------------');
+      bodyLines.push('TOTAL ONE-OFF:  \u00A3' + sel.totals.oneOff);
+      bodyLines.push('TOTAL MONTHLY:  \u00A3' + sel.totals.monthly + '/mo');
+      bodyLines.push('');
+      bodyLines.push('Selected on: ' + sel.date);
 
-            document.querySelectorAll('.option-card.selected').forEach(card => {
-                const price = parseFloat(card.dataset.price);
-                const recurring = card.dataset.recurring === 'true';
+      var body = encodeURIComponent(bodyLines.join('\n'));
+      document.getElementById('emailBtn').href = 'mailto:daniel@dreamfree.co.uk?subject=' + subject + '&body=' + body;
+    }
 
-                if (recurring) {
-                    monthly += price;
-                } else {
-                    oneOff += price;
-                }
-            });
+    // Card click handling
+    document.querySelectorAll('.option-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var input = card.querySelector('input');
+        var group = card.closest('.option-group');
 
-            document.getElementById('total-oneoff').textContent = '£' + oneOff.toLocaleString();
-
-            const monthlyWrap = document.getElementById('monthly-wrap');
-            const monthlyFormatted = monthly % 1 === 0 ? '£' + monthly : '£' + monthly.toFixed(2);
-            document.getElementById('total-monthly').textContent = monthlyFormatted + '/mo';
-            monthlyWrap.style.display = '';
+        if (input.type === 'radio') {
+          group.querySelectorAll('.option-card').forEach(function(c) { c.classList.remove('selected'); });
+          card.classList.add('selected');
+          input.checked = true;
+        } else {
+          card.classList.toggle('selected');
+          input.checked = !input.checked;
         }
 
-        // Initialise totals (Standard retainer is pre-selected)
-        updateTotals();
+        updateSummary();
+      });
+    });
 
-        function downloadQuote() {
-            const selections = [];
-            let oneOff = BASE_PRICE;
-            let monthly = 0;
+    function downloadJSON() {
+      var sel = getSelections();
+      var json = JSON.stringify(sel, null, 2);
+      var blob = new Blob([json], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'luke-jones-package-' + sel.date + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
 
-            document.querySelectorAll('.option-card.selected').forEach(card => {
-                const grid = card.closest('.options-grid');
-                const price = parseFloat(card.dataset.price);
-                const recurring = card.dataset.recurring === 'true';
-
-                selections.push({
-                    category: grid.dataset.category,
-                    option: card.dataset.name,
-                    price: price,
-                    type: recurring ? 'monthly' : 'one-off'
-                });
-
-                if (recurring) {
-                    monthly += price;
-                } else {
-                    oneOff += price;
-                }
-            });
-
-            const quote = {
-                date: new Date().toISOString().split('T')[0],
-                basePackage: {
-                    name: 'Go Live',
-                    price: BASE_PRICE,
-                    type: 'one-off'
-                },
-                selections: selections,
-                totals: {
-                    oneOff: oneOff,
-                    monthly: parseFloat(monthly.toFixed(2))
-                }
-            };
-
-            const blob = new Blob([JSON.stringify(quote, null, 2)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'website-quote-' + quote.date + '.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-    </script>
+    // Initial render
+    updateSummary();
+  </script>
 
 </body>
 </html>
