@@ -34,288 +34,97 @@
       color: var(--color-ivory);
       min-height: 100vh;
       line-height: 1.6;
-      padding-bottom: 160px;
+      padding-bottom: 180px;
     }
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 2rem;
-    }
+    .page { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
 
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-      text-decoration: none;
-      margin-bottom: 2rem;
-      transition: color 0.2s ease;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8125rem; color: var(--color-grey-warm);
+      text-decoration: none; margin-bottom: 2rem; transition: color 0.2s ease;
     }
-
     .back-link:hover { color: var(--color-bronze); }
 
-    .page-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+    .page-header { text-align: center; margin-bottom: 3rem; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 400; margin-bottom: 0.5rem; }
+    .page-header p { color: var(--color-grey-warm); font-size: 0.9375rem; }
 
-    .page-header h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
+    .eyebrow { display: inline-block; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--color-bronze); margin-bottom: 0.75rem; }
 
-    .page-header p {
-      color: var(--color-grey-warm);
-      font-size: 0.9375rem;
-    }
+    .config-section { margin-bottom: 2.5rem; }
+    .config-section h2 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 400; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-charcoal-medium); }
+    .config-section h2 .hint { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-grey-warm); letter-spacing: 0; text-transform: none; }
 
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--color-bronze);
-      margin-bottom: 0.75rem;
-    }
-
-    /* Sections */
-    .config-section {
-      margin-bottom: 2.5rem;
-    }
-
-    .config-section h2 {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      font-weight: 400;
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--color-charcoal-medium);
-    }
-
-    .config-section h2 .hint {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      color: var(--color-grey-warm);
-      letter-spacing: 0;
-      text-transform: none;
-    }
-
-    /* Fixed build row */
     .build-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 1.5rem;
-      background-color: var(--color-charcoal-light);
-      border-left: 2px solid var(--color-bronze);
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 1.5rem; background-color: var(--color-charcoal-light);
+      border-left: 2px solid var(--color-bronze); flex-wrap: wrap; gap: 0.5rem;
     }
-
     .build-row span:first-child { font-size: 0.9375rem; }
+    .build-row .price { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-bronze); }
+    .build-row .price-was { text-decoration: line-through; color: var(--color-grey-warm); font-family: var(--font-body); font-size: 0.875rem; margin-right: 0.5rem; }
+    .build-row .build-terms { width: 100%; font-size: 0.8125rem; color: var(--color-grey-warm); margin-top: 0.25rem; }
 
-    .build-row .price {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--color-bronze);
-    }
-
-    .build-row .price-was {
-      text-decoration: line-through;
-      color: var(--color-grey-warm);
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      margin-right: 0.5rem;
-    }
-
-    /* Option cards */
     .option-group { display: grid; gap: 0.75rem; }
 
     .option-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background-color: var(--color-charcoal-light);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      border: 1px solid transparent;
-      user-select: none;
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.25rem 1.5rem; background-color: var(--color-charcoal-light);
+      cursor: pointer; transition: all 0.25s ease;
+      border: 1px solid transparent; user-select: none;
     }
-
     .option-card:hover { background-color: var(--color-charcoal-medium); }
-
-    .option-card.selected {
-      border-color: var(--color-bronze);
-      background-color: rgba(201, 166, 107, 0.06);
-    }
-
+    .option-card.selected { border-color: var(--color-bronze); background-color: rgba(201, 166, 107, 0.06); }
     .option-card input { display: none; }
 
     .option-check {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border: 1.5px solid var(--color-grey-warm);
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 0.1rem;
-      transition: all 0.2s ease;
+      flex-shrink: 0; width: 22px; height: 22px;
+      border: 1.5px solid var(--color-grey-warm); border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.1rem; transition: all 0.2s ease;
     }
-
     .option-card[data-type="radio"] .option-check { border-radius: 50%; }
-
-    .option-card.selected .option-check {
-      border-color: var(--color-bronze);
-      background-color: var(--color-bronze);
-    }
-
-    .option-check svg {
-      width: 12px;
-      height: 12px;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-
+    .option-card.selected .option-check { border-color: var(--color-bronze); background-color: var(--color-bronze); }
+    .option-check svg { width: 12px; height: 12px; opacity: 0; transition: opacity 0.2s ease; }
     .option-card.selected .option-check svg { opacity: 1; }
 
     .option-info { flex: 1; min-width: 0; }
-
     .option-name { font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
+    .option-desc { font-size: 0.8125rem; color: var(--color-grey-warm); line-height: 1.5; }
 
-    .option-desc {
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-      line-height: 1.5;
-    }
+    .option-price { flex-shrink: 0; font-family: var(--font-display); font-size: 1.25rem; color: var(--color-bronze); white-space: nowrap; }
+    .option-price span { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-grey-warm); }
 
-    .option-price {
-      flex-shrink: 0;
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--color-bronze);
-      white-space: nowrap;
-    }
-
-    .option-price span {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      color: var(--color-grey-warm);
-    }
-
-    /* Sticky summary */
     .summary {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      position: fixed; bottom: 0; left: 0; right: 0;
       background-color: var(--color-black);
       border-top: 1px solid var(--color-charcoal-medium);
-      padding: 1.25rem 1.5rem;
-      z-index: 10;
+      padding: 1.25rem 1.5rem; z-index: 10;
     }
-
-    .summary-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .summary-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
+    .summary-inner { max-width: 900px; margin: 0 auto; }
+    .summary-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; margin-bottom: 1rem; }
     .summary-lines { flex: 1; }
-
-    .summary-line {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8125rem;
-      color: var(--color-grey-light);
-      padding: 0.2rem 0;
-    }
-
-    .summary-line.empty {
-      color: var(--color-grey-warm);
-      font-style: italic;
-    }
-
+    .summary-line { display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--color-grey-light); padding: 0.2rem 0; }
+    .summary-line.empty { color: var(--color-grey-warm); font-style: italic; }
     .summary-totals { text-align: right; flex-shrink: 0; }
-
-    .summary-oneoff {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      color: var(--color-ivory);
-    }
-
-    .summary-oneoff-label {
-      font-size: 0.6875rem;
-      color: var(--color-grey-warm);
-      margin-bottom: 0.25rem;
-    }
-
-    .summary-monthly {
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      color: var(--color-bronze);
-    }
-
-    .summary-monthly-label {
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      color: var(--color-grey-warm);
-    }
-
-    .summary-actions {
-      display: flex;
-      gap: 0.75rem;
-    }
+    .summary-oneoff { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-ivory); }
+    .summary-oneoff-label { font-size: 0.6875rem; color: var(--color-grey-warm); margin-bottom: 0.25rem; }
+    .summary-monthly { font-family: var(--font-display); font-size: 1.125rem; color: var(--color-bronze); }
+    .summary-monthly-label { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-grey-warm); }
+    .summary-actions { display: flex; gap: 0.75rem; }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 1rem 1.5rem;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      flex: 1;
-      text-align: center;
-      color: inherit;
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 1rem 1.5rem; cursor: pointer; border: none;
+      transition: all 0.3s ease; text-decoration: none; flex: 1; text-align: center; color: inherit;
     }
-
-    .btn--primary {
-      background-color: var(--color-bronze);
-      color: var(--color-charcoal);
-    }
-
+    .btn--primary { background-color: var(--color-bronze); color: var(--color-charcoal); }
     .btn--primary:hover { background-color: var(--color-bronze-light); }
-
-    .btn--secondary {
-      background-color: transparent;
-      color: var(--color-ivory);
-      border: 1px solid var(--color-charcoal-medium);
-    }
-
+    .btn--secondary { background-color: transparent; color: var(--color-ivory); border: 1px solid var(--color-charcoal-medium); }
     .btn--secondary:hover { border-color: var(--color-grey-warm); }
-
     .btn svg { width: 14px; height: 14px; }
 
     @media (max-width: 640px) {
@@ -346,6 +155,7 @@
       <div class="build-row">
         <span>Complete rebuild &mdash; StoryBrand copy, Next.js, SEO, analytics &amp; hosting</span>
         <span class="price"><span class="price-was">&pound;2,000</span> &pound;500</span>
+        <span class="build-terms">50% on agreement (&pound;250) &bull; 50% on delivery (&pound;250) &bull; Approx. 4 weeks</span>
       </div>
     </div>
 
@@ -354,23 +164,19 @@
       <h2>Monthly Package <span class="hint">(choose one)</span></h2>
       <div class="option-group" id="packageGroup">
 
-        <label class="option-card selected" data-type="radio" data-name="Foundation" data-price="50">
+        <label class="option-card selected" data-type="radio" data-name="Foundation" data-price="50" data-pricetype="monthly">
           <input type="radio" name="package" value="foundation" checked>
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
-            <div class="option-name">Foundation &mdash; &pound;50/mo</div>
-            <div class="option-desc">Hosting, security, backups &amp; 1 monthly tweak (use it or lose it). Hassle-free &mdash; we handle everything technical.</div>
+            <div class="option-name">Foundation &mdash; <span style="text-decoration:line-through;color:var(--color-grey-warm);font-size:0.85rem;">&pound;79</span> &pound;50/mo</div>
+            <div class="option-desc">Hosting, security, backups &amp; 1 monthly tweak (use it or lose it). Hassle-free &mdash; we handle everything technical. Discounted rate for you.</div>
           </div>
           <div class="option-price">&pound;50 <span>/mo</span></div>
         </label>
 
-        <label class="option-card" data-type="radio" data-name="Growth" data-price="107">
+        <label class="option-card" data-type="radio" data-name="Growth" data-price="107" data-pricetype="monthly">
           <input type="radio" name="package" value="growth">
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
             <div class="option-name">Growth &mdash; &pound;107/mo</div>
             <div class="option-desc">Everything in Foundation plus 3 monthly tweaks, a monthly performance report in plain English, and a quarterly strategy call to plan what's next.</div>
@@ -378,11 +184,9 @@
           <div class="option-price">&pound;107 <span>/mo</span></div>
         </label>
 
-        <label class="option-card" data-type="radio" data-name="Accelerator" data-price="297">
+        <label class="option-card" data-type="radio" data-name="Accelerator" data-price="297" data-pricetype="monthly">
           <input type="radio" name="package" value="accelerator">
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
             <div class="option-name">Accelerator &mdash; &pound;297/mo</div>
             <div class="option-desc">We actively manage your content, test what works best, and build email sequences that nurture visitors into consultation bookings. Your website becomes a growth engine.</div>
@@ -398,23 +202,19 @@
       <h2>Add-Ons <span class="hint">(select any)</span></h2>
       <div class="option-group" id="addonsGroup">
 
-        <label class="option-card" data-type="checkbox" data-name="Smart Follow-Up (CRM)" data-price="21">
+        <label class="option-card" data-type="checkbox" data-name="Smart Follow-Up (CRM)" data-price="21" data-pricetype="monthly">
           <input type="checkbox" name="addon" value="crm">
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
             <div class="option-name">Smart Follow-Up &mdash; &pound;21/mo</div>
-            <div class="option-desc">Every enquiry automatically logged, followed up and tracked. See exactly who's interested, who needs a nudge, and who's ready to go. No more forgotten leads.</div>
+            <div class="option-desc">Every enquiry automatically logged, followed up and tracked. See exactly who's interested, who needs a nudge, and who's ready to go.</div>
           </div>
           <div class="option-price">&pound;21 <span>/mo</span></div>
         </label>
 
-        <label class="option-card" data-type="checkbox" data-name="AI Concierge" data-price="21">
+        <label class="option-card" data-type="checkbox" data-name="AI Concierge" data-price="21" data-pricetype="monthly">
           <input type="checkbox" name="addon" value="concierge">
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
             <div class="option-name">AI Concierge &mdash; &pound;21/mo</div>
             <div class="option-desc">A 24/7 assistant on your website that answers questions, shares your portfolio and guides visitors toward booking &mdash; even while you're in the workshop.</div>
@@ -422,16 +222,44 @@
           <div class="option-price">&pound;21 <span>/mo</span></div>
         </label>
 
-        <label class="option-card" data-type="checkbox" data-name="Local Growth (SEO)" data-price="200">
+        <label class="option-card" data-type="checkbox" data-name="Local Growth (SEO)" data-price="200" data-pricetype="monthly">
           <input type="checkbox" name="addon" value="seo">
-          <div class="option-check">
-            <svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg>
-          </div>
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
           <div class="option-info">
             <div class="option-name">Local Growth &mdash; &pound;200/mo</div>
             <div class="option-desc">Ongoing SEO campaign: location-targeted content, Google Business profile tuning, and a clear monthly report showing your progress up the rankings.</div>
           </div>
           <div class="option-price">&pound;200 <span>/mo</span></div>
+        </label>
+
+        <label class="option-card" data-type="checkbox" data-name="Reputation Engine" data-price="59" data-pricetype="monthly">
+          <input type="checkbox" name="addon" value="reputation">
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="option-info">
+            <div class="option-name">Reputation Engine &mdash; &pound;59/mo</div>
+            <div class="option-desc">Push-button review requests (you choose when), monitoring across Google/Houzz/Trustpilot &amp; professional responses. Build a wall of 5-star reviews.</div>
+          </div>
+          <div class="option-price">&pound;59 <span>/mo</span></div>
+        </label>
+
+        <label class="option-card" data-type="checkbox" data-name="Project Story (monthly)" data-price="150" data-pricetype="monthly">
+          <input type="checkbox" name="addon" value="story-monthly">
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="option-info">
+            <div class="option-name">Project Story &mdash; &pound;150/mo</div>
+            <div class="option-desc">1 completed project per month turned into a rich case study using your professional photography. The most powerful pages on your site for trust and search rankings.</div>
+          </div>
+          <div class="option-price">&pound;150 <span>/mo</span></div>
+        </label>
+
+        <label class="option-card" data-type="checkbox" data-name="Project Story (one-off)" data-price="200" data-pricetype="oneoff">
+          <input type="checkbox" name="addon" value="story-oneoff">
+          <div class="option-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="option-info">
+            <div class="option-name">Project Story &mdash; &pound;200 one-off</div>
+            <div class="option-desc">A single project case study from your existing photography, commissioned as and when you complete a project you're proud of.</div>
+          </div>
+          <div class="option-price">&pound;200 <span>once</span></div>
         </label>
 
       </div>
@@ -445,7 +273,7 @@
         <div class="summary-lines" id="summaryLines"></div>
         <div class="summary-totals">
           <div class="summary-oneoff" id="totalOneoff">&pound;500</div>
-          <div class="summary-oneoff-label">one-off</div>
+          <div class="summary-oneoff-label">one-off (50/50 split)</div>
           <div class="summary-monthly">+ <span id="totalMonthly">&pound;50</span> <span class="summary-monthly-label">/mo</span></div>
         </div>
       </div>
@@ -463,26 +291,35 @@
   </div>
 
   <script>
-    const BUILD_COST = 500;
+    var BUILD_COST = 500;
 
     function getSelections() {
-      const pkgCard = document.querySelector('#packageGroup .option-card.selected');
-      const pkg = { name: pkgCard.dataset.name, price: parseInt(pkgCard.dataset.price) };
+      var pkgCard = document.querySelector('#packageGroup .option-card.selected');
+      var pkg = { name: pkgCard.dataset.name, price: parseInt(pkgCard.dataset.price) };
 
-      const addons = [];
+      var addonsMonthly = [];
+      var addonsOneoff = [];
+
       document.querySelectorAll('#addonsGroup .option-card.selected').forEach(function(card) {
-        addons.push({ name: card.dataset.name, price: parseInt(card.dataset.price) });
+        var item = { name: card.dataset.name, price: parseInt(card.dataset.price) };
+        if (card.dataset.pricetype === 'oneoff') {
+          addonsOneoff.push(item);
+        } else {
+          addonsMonthly.push(item);
+        }
       });
 
-      var monthlyTotal = pkg.price + addons.reduce(function(sum, a) { return sum + a.price; }, 0);
+      var totalOneoff = BUILD_COST + addonsOneoff.reduce(function(s, a) { return s + a.price; }, 0);
+      var totalMonthly = pkg.price + addonsMonthly.reduce(function(s, a) { return s + a.price; }, 0);
 
       return {
         client: 'Luke Jones Furniture',
         date: new Date().toISOString().split('T')[0],
-        build: { name: 'Website Rebuild', price: BUILD_COST },
+        build: { name: 'Website Rebuild', price: BUILD_COST, terms: '50% upfront / 50% on delivery' },
         package: pkg,
-        addons: addons,
-        totals: { oneOff: BUILD_COST, monthly: monthlyTotal }
+        addonsMonthly: addonsMonthly,
+        addonsOneoff: addonsOneoff,
+        totals: { oneOff: totalOneoff, monthly: totalMonthly }
       };
     }
 
@@ -492,13 +329,18 @@
       var html = '';
 
       html += '<div class="summary-line"><span>Website build</span><span>\u00A3' + sel.build.price + '</span></div>';
+
+      sel.addonsOneoff.forEach(function(a) {
+        html += '<div class="summary-line"><span>' + a.name + '</span><span>\u00A3' + a.price + '</span></div>';
+      });
+
       html += '<div class="summary-line"><span>' + sel.package.name + ' package</span><span>\u00A3' + sel.package.price + '/mo</span></div>';
 
-      sel.addons.forEach(function(a) {
+      sel.addonsMonthly.forEach(function(a) {
         html += '<div class="summary-line"><span>' + a.name + '</span><span>\u00A3' + a.price + '/mo</span></div>';
       });
 
-      if (sel.addons.length === 0) {
+      if (sel.addonsMonthly.length === 0 && sel.addonsOneoff.length === 0) {
         html += '<div class="summary-line empty"><span>No add-ons selected</span><span></span></div>';
       }
 
@@ -506,23 +348,27 @@
       document.getElementById('totalOneoff').textContent = '\u00A3' + sel.totals.oneOff;
       document.getElementById('totalMonthly').textContent = '\u00A3' + sel.totals.monthly;
 
-      // Build mailto
+      // mailto
       var subject = encodeURIComponent('Luke Jones Furniture - Package Selection');
       var bodyLines = [
         'LUKE JONES FURNITURE - SELECTED PACKAGE',
         '========================================',
         '',
-        'Website Build: \u00A3' + sel.build.price + ' (one-off)',
+        'Website Build: \u00A3' + sel.build.price + ' (one-off, 50% upfront / 50% on delivery)',
         '',
         'Monthly Package: ' + sel.package.name + ' - \u00A3' + sel.package.price + '/mo'
       ];
 
-      if (sel.addons.length > 0) {
+      if (sel.addonsMonthly.length > 0) {
         bodyLines.push('');
-        bodyLines.push('Add-ons:');
-        sel.addons.forEach(function(a) {
-          bodyLines.push('  - ' + a.name + ': \u00A3' + a.price + '/mo');
-        });
+        bodyLines.push('Monthly Add-ons:');
+        sel.addonsMonthly.forEach(function(a) { bodyLines.push('  - ' + a.name + ': \u00A3' + a.price + '/mo'); });
+      }
+
+      if (sel.addonsOneoff.length > 0) {
+        bodyLines.push('');
+        bodyLines.push('One-off Add-ons:');
+        sel.addonsOneoff.forEach(function(a) { bodyLines.push('  - ' + a.name + ': \u00A3' + a.price); });
       }
 
       bodyLines.push('');
@@ -536,7 +382,6 @@
       document.getElementById('emailBtn').href = 'mailto:daniel@dreamfree.co.uk?subject=' + subject + '&body=' + body;
     }
 
-    // Card click handling
     document.querySelectorAll('.option-card').forEach(function(card) {
       card.addEventListener('click', function() {
         var input = card.querySelector('input');
@@ -567,7 +412,6 @@
       URL.revokeObjectURL(url);
     }
 
-    // Initial render
     updateSummary();
   </script>
 

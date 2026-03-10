@@ -19,7 +19,6 @@
        PROPOSAL PAGE STYLES
        ========================================================================== */
 
-    /* Override hero for proposal */
     .proposal-hero {
       position: relative;
       min-height: 70vh;
@@ -36,23 +35,12 @@
     .proposal-hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: radial-gradient(ellipse at 50% 0%, rgba(201, 166, 107, 0.08) 0%, transparent 70%);
     }
 
-    .proposal-hero__content {
-      position: relative;
-      max-width: 800px;
-    }
-
-    .proposal-hero__prepared {
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-      margin-bottom: var(--space-lg);
-    }
+    .proposal-hero__content { position: relative; max-width: 800px; }
+    .proposal-hero__prepared { font-size: 0.8125rem; color: var(--color-grey-warm); margin-bottom: var(--space-lg); }
 
     .proposal-hero__title {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -80,131 +68,40 @@
     }
 
     /* Proposal Sections */
-    .proposal-section {
-      padding: var(--space-xl) var(--space-md);
-    }
+    .proposal-section { padding: var(--space-xl) var(--space-md); }
+    @media (min-width: 768px) { .proposal-section { padding: var(--space-2xl) var(--space-md); } }
+    .proposal-section--ivory { background-color: var(--color-ivory); }
+    .proposal-section--cream { background-color: var(--color-cream); }
+    .proposal-section--dark { background-color: var(--color-charcoal); color: var(--color-ivory); }
+    .proposal-section--black { background-color: var(--color-black); color: var(--color-ivory); }
 
-    @media (min-width: 768px) {
-      .proposal-section {
-        padding: var(--space-2xl) var(--space-md);
-      }
-    }
+    .proposal-inner { max-width: 900px; margin: 0 auto; }
+    .proposal-inner--wide { max-width: 1200px; }
 
-    .proposal-section--ivory {
-      background-color: var(--color-ivory);
-    }
-
-    .proposal-section--cream {
-      background-color: var(--color-cream);
-    }
-
-    .proposal-section--dark {
-      background-color: var(--color-charcoal);
-      color: var(--color-ivory);
-    }
-
-    .proposal-section--black {
-      background-color: var(--color-black);
-      color: var(--color-ivory);
-    }
-
-    .proposal-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .proposal-inner--wide {
-      max-width: 1200px;
-    }
-
-    /* Section Headers */
-    .proposal-header {
-      text-align: center;
-      margin-bottom: var(--space-xl);
-    }
-
-    .proposal-header h2 {
-      margin-bottom: var(--space-sm);
-    }
-
-    .proposal-header p {
-      color: var(--color-grey-warm);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
+    .proposal-header { text-align: center; margin-bottom: var(--space-xl); }
+    .proposal-header h2 { margin-bottom: var(--space-sm); }
+    .proposal-header p { color: var(--color-grey-warm); max-width: 600px; margin: 0 auto; }
     .proposal-section--dark .proposal-header p,
-    .proposal-section--black .proposal-header p {
-      color: var(--color-grey-light);
-    }
+    .proposal-section--black .proposal-header p { color: var(--color-grey-light); }
 
     /* Story Blocks */
-    .story-block {
-      margin-bottom: var(--space-xl);
-    }
-
-    .story-block:last-child {
-      margin-bottom: 0;
-    }
-
-    .story-block h3 {
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
-      margin-bottom: var(--space-md);
-    }
-
-    .story-block p {
-      color: var(--color-grey-warm);
-      margin-bottom: var(--space-sm);
-      line-height: 1.9;
-    }
-
-    .story-block p:last-child {
-      margin-bottom: 0;
-    }
-
+    .story-block { margin-bottom: var(--space-xl); }
+    .story-block:last-child { margin-bottom: 0; }
+    .story-block h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: var(--space-md); }
+    .story-block p { color: var(--color-grey-warm); margin-bottom: var(--space-sm); line-height: 1.9; }
+    .story-block p:last-child { margin-bottom: 0; }
     .proposal-section--dark .story-block p,
-    .proposal-section--black .story-block p {
-      color: var(--color-grey-light);
-    }
+    .proposal-section--black .story-block p { color: var(--color-grey-light); }
 
-    /* Highlight Quote */
-    .proposal-quote {
-      border-left: 2px solid var(--color-bronze);
-      padding-left: var(--space-md);
-      margin: var(--space-lg) 0;
-    }
-
-    .proposal-quote p {
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 2vw, 1.5rem);
-      font-style: italic;
-      line-height: 1.6;
-      color: var(--color-charcoal) !important;
-    }
-
+    .proposal-quote { border-left: 2px solid var(--color-bronze); padding-left: var(--space-md); margin: var(--space-lg) 0; }
+    .proposal-quote p { font-family: var(--font-display); font-size: clamp(1.25rem, 2vw, 1.5rem); font-style: italic; line-height: 1.6; color: var(--color-charcoal) !important; }
     .proposal-section--dark .proposal-quote p,
-    .proposal-section--black .proposal-quote p {
-      color: var(--color-ivory) !important;
-    }
+    .proposal-section--black .proposal-quote p { color: var(--color-ivory) !important; }
 
     /* Benefits Grid */
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 768px) {
-      .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+    .benefits-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
+    @media (min-width: 768px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .benefits-grid { grid-template-columns: repeat(3, 1fr); } }
 
     .benefit-card {
       padding: var(--space-lg);
@@ -212,58 +109,21 @@
       border-top: 2px solid var(--color-bronze);
       transition: transform 0.4s var(--ease-out-expo);
     }
-
-    .benefit-card:hover {
-      transform: translateY(-4px);
-    }
-
+    .benefit-card:hover { transform: translateY(-4px); }
     .proposal-section--dark .benefit-card,
-    .proposal-section--black .benefit-card {
-      background-color: var(--color-charcoal-light);
-    }
+    .proposal-section--black .benefit-card { background-color: var(--color-charcoal-light); }
 
-    .benefit-card__number {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      color: var(--color-ivory-dark);
-      line-height: 1;
-      margin-bottom: var(--space-sm);
-    }
-
+    .benefit-card__number { font-family: var(--font-display); font-size: 3rem; color: var(--color-ivory-dark); line-height: 1; margin-bottom: var(--space-sm); }
     .proposal-section--dark .benefit-card__number,
-    .proposal-section--black .benefit-card__number {
-      color: var(--color-charcoal-medium);
-    }
-
-    .benefit-card h4 {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      margin-bottom: var(--space-sm);
-    }
-
-    .benefit-card p {
-      color: var(--color-grey-warm);
-      font-size: 0.9375rem;
-    }
-
+    .proposal-section--black .benefit-card__number { color: var(--color-charcoal-medium); }
+    .benefit-card h4 { font-family: var(--font-display); font-size: 1.375rem; margin-bottom: var(--space-sm); }
+    .benefit-card p { color: var(--color-grey-warm); font-size: 0.9375rem; }
     .proposal-section--dark .benefit-card p,
-    .proposal-section--black .benefit-card p {
-      color: var(--color-grey-light);
-    }
+    .proposal-section--black .benefit-card p { color: var(--color-grey-light); }
 
-    /* Pricing Section */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
-
-    @media (min-width: 768px) {
-      .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
-        align-items: start;
-      }
-    }
+    /* Pricing Cards */
+    .pricing-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+    @media (min-width: 768px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); align-items: start; } }
 
     .pricing-card {
       padding: var(--space-lg);
@@ -271,395 +131,202 @@
       position: relative;
       transition: transform 0.4s var(--ease-out-expo);
     }
-
-    .pricing-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .pricing-card--featured {
-      border: 1px solid var(--color-bronze);
-    }
-
+    .pricing-card:hover { transform: translateY(-4px); }
+    .pricing-card--featured { border: 1px solid var(--color-bronze); }
     .pricing-card--featured::before {
       content: 'Most Popular';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: absolute; top: 0; left: 0; right: 0;
       background-color: var(--color-bronze);
       color: var(--color-charcoal);
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-align: center;
-      padding: 0.5rem;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; text-align: center; padding: 0.5rem;
     }
+    .pricing-card--featured { padding-top: calc(var(--space-lg) + 1.5rem); }
 
-    .pricing-card--featured {
-      padding-top: calc(var(--space-lg) + 1.5rem);
-    }
+    .pricing-card__name { font-family: var(--font-display); font-size: 1.75rem; margin-bottom: var(--space-xs); }
+    .pricing-card__tagline { font-size: 0.875rem; color: var(--color-grey-warm); margin-bottom: var(--space-md); }
+    .pricing-card__price { font-family: var(--font-display); font-size: 3rem; color: var(--color-bronze); line-height: 1; margin-bottom: 0.25rem; }
+    .pricing-card__price span { font-family: var(--font-body); font-size: 0.875rem; color: var(--color-grey-warm); }
+    .pricing-card__period { font-size: 0.8125rem; color: var(--color-grey-warm); margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-charcoal-medium); }
+    .pricing-card__features { list-style: none; padding: 0; margin: 0; }
+    .pricing-card__features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9375rem; color: var(--color-grey-light); padding: 0.6rem 0; }
+    .pricing-card__features li::before { content: '\2713'; color: var(--color-bronze); font-weight: 600; flex-shrink: 0; margin-top: 0.1rem; }
 
-    .pricing-card__name {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      margin-bottom: var(--space-xs);
-    }
-
-    .pricing-card__tagline {
-      font-size: 0.875rem;
-      color: var(--color-grey-warm);
-      margin-bottom: var(--space-md);
-    }
-
-    .pricing-card__price {
-      font-family: var(--font-display);
-      font-size: 3rem;
-      color: var(--color-bronze);
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .pricing-card__price span {
-      font-family: var(--font-body);
-      font-size: 0.875rem;
-      color: var(--color-grey-warm);
-    }
-
-    .pricing-card__period {
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-      margin-bottom: var(--space-md);
-      padding-bottom: var(--space-md);
-      border-bottom: 1px solid var(--color-charcoal-medium);
-    }
-
-    .pricing-card__features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .pricing-card__features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9375rem;
-      color: var(--color-grey-light);
-      padding: 0.6rem 0;
-    }
-
-    .pricing-card__features li::before {
-      content: '\2713';
-      color: var(--color-bronze);
-      font-weight: 600;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    /* Add-ons */
-    .addons-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-      margin-top: var(--space-xl);
-    }
-
-    @media (min-width: 768px) {
-      .addons-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
+    /* Add-on cards */
+    .addons-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); margin-top: var(--space-xl); }
+    @media (min-width: 768px) { .addons-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .addons-grid { grid-template-columns: repeat(3, 1fr); } }
 
     .addon-card {
       padding: var(--space-lg);
       background-color: var(--color-charcoal-light);
       border-left: 2px solid var(--color-bronze);
     }
+    .addon-card__name { font-family: var(--font-display); font-size: 1.375rem; margin-bottom: var(--space-xs); }
+    .addon-card__price { font-family: var(--font-display); font-size: 1.75rem; color: var(--color-bronze); margin-bottom: var(--space-sm); }
+    .addon-card__price span { font-family: var(--font-body); font-size: 0.8125rem; color: var(--color-grey-warm); }
+    .addon-card p { color: var(--color-grey-light); font-size: 0.9375rem; }
 
-    .addon-card__name {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      margin-bottom: var(--space-xs);
-    }
+    /* Comparison grid */
+    .comparison-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-md); }
+    @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; gap: var(--space-lg); } }
+    .comparison-col { padding: var(--space-lg); }
+    .comparison-col--before { background-color: rgba(255,255,255,0.03); border-top: 2px solid var(--color-grey-warm); }
+    .comparison-col--after { background-color: rgba(201, 166, 107, 0.05); border-top: 2px solid var(--color-bronze); }
+    .comparison-col h3 { font-size: 1.5rem; margin-bottom: var(--space-md); }
+    .comparison-col ul { list-style: none; padding: 0; }
+    .comparison-col ul li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9375rem; color: var(--color-grey-light); padding: 0.5rem 0; }
+    .comparison-col--before ul li::before { content: '\2717'; color: var(--color-grey-warm); flex-shrink: 0; }
+    .comparison-col--after ul li::before { content: '\2713'; color: var(--color-bronze); flex-shrink: 0; }
 
-    .addon-card__price {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      color: var(--color-bronze);
-      margin-bottom: var(--space-sm);
-    }
+    /* Investment summary */
+    .investment-summary { background-color: var(--color-charcoal-medium); padding: var(--space-lg); margin-top: var(--space-xl); text-align: center; }
+    .investment-summary h3 { font-size: 1.75rem; margin-bottom: var(--space-md); }
+    .investment-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); max-width: 500px; margin: 0 auto; }
+    .investment-row:last-of-type { border-bottom: none; }
+    .investment-row span:first-child { color: var(--color-grey-light); font-size: 0.9375rem; }
+    .investment-row span:last-child { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-ivory); }
+    .investment-total { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-bronze); }
+    .investment-total span:last-child { color: var(--color-bronze) !important; font-size: 1.5rem !important; }
 
-    .addon-card__price span {
-      font-family: var(--font-body);
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-    }
-
-    .addon-card p {
-      color: var(--color-grey-light);
-      font-size: 0.9375rem;
-    }
-
-    /* Investment Summary */
-    .investment-summary {
-      background-color: var(--color-charcoal-medium);
-      padding: var(--space-lg);
-      margin-top: var(--space-xl);
-      text-align: center;
-    }
-
-    .investment-summary h3 {
-      font-size: 1.75rem;
-      margin-bottom: var(--space-md);
-    }
-
-    .investment-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .investment-row:last-of-type {
-      border-bottom: none;
-    }
-
-    .investment-row span:first-child {
-      color: var(--color-grey-light);
-      font-size: 0.9375rem;
-    }
-
-    .investment-row span:last-child {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--color-ivory);
-    }
-
-    .investment-total {
-      margin-top: var(--space-md);
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--color-bronze);
-    }
-
-    .investment-total span:last-child {
-      color: var(--color-bronze) !important;
-      font-size: 1.5rem !important;
-    }
-
-    /* Comparison before/after */
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
-
-    @media (min-width: 768px) {
-      .comparison-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-      }
-    }
-
-    .comparison-col {
-      padding: var(--space-lg);
-    }
-
-    .comparison-col--before {
-      background-color: rgba(255,255,255,0.03);
-      border-top: 2px solid var(--color-grey-warm);
-    }
-
-    .comparison-col--after {
-      background-color: rgba(201, 166, 107, 0.05);
-      border-top: 2px solid var(--color-bronze);
-    }
-
-    .comparison-col h3 {
-      font-size: 1.5rem;
-      margin-bottom: var(--space-md);
-    }
-
-    .comparison-col ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .comparison-col ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9375rem;
-      color: var(--color-grey-light);
-      padding: 0.5rem 0;
-    }
-
-    .comparison-col--before ul li::before {
-      content: '\2717';
-      color: var(--color-grey-warm);
-      flex-shrink: 0;
-    }
-
-    .comparison-col--after ul li::before {
-      content: '\2713';
-      color: var(--color-bronze);
-      flex-shrink: 0;
-    }
-
-    /* Divider line */
-    .proposal-divider {
-      width: 60px;
-      height: 1px;
-      background-color: var(--color-bronze);
-      margin: 0 auto var(--space-lg);
-    }
+    /* Payment terms */
+    .payment-terms { display: grid; grid-template-columns: 1fr; gap: var(--space-sm); margin-top: var(--space-lg); max-width: 500px; margin-left: auto; margin-right: auto; }
+    @media (min-width: 500px) { .payment-terms { grid-template-columns: 1fr 1fr; } }
+    .payment-term { background-color: rgba(201, 166, 107, 0.06); border: 1px solid rgba(201, 166, 107, 0.15); padding: 1rem 1.25rem; text-align: center; }
+    .payment-term__label { font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-grey-warm); margin-bottom: 0.25rem; }
+    .payment-term__amount { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-bronze); }
 
     /* Next Steps */
-    .next-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-lg);
-    }
-
-    @media (min-width: 768px) {
-      .next-steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .next-step {
-      text-align: center;
-      padding: var(--space-lg) var(--space-md);
-    }
-
-    .next-step__number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border: 1px solid var(--color-bronze);
-      border-radius: 50%;
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      color: var(--color-bronze);
-      margin-bottom: var(--space-md);
-    }
-
-    .next-step h4 {
-      font-family: var(--font-display);
-      font-size: 1.375rem;
-      margin-bottom: var(--space-sm);
-    }
-
-    .next-step p {
-      color: var(--color-grey-warm);
-      font-size: 0.9375rem;
-    }
-
-    .proposal-section--dark .next-step p {
-      color: var(--color-grey-light);
-    }
+    .next-steps { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
+    @media (min-width: 768px) { .next-steps { grid-template-columns: repeat(3, 1fr); } }
+    .next-step { text-align: center; padding: var(--space-lg) var(--space-md); }
+    .next-step__number { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border: 1px solid var(--color-bronze); border-radius: 50%; font-family: var(--font-display); font-size: 1.25rem; color: var(--color-bronze); margin-bottom: var(--space-md); }
+    .next-step h4 { font-family: var(--font-display); font-size: 1.375rem; margin-bottom: var(--space-sm); }
+    .next-step p { color: var(--color-grey-warm); font-size: 0.9375rem; }
+    .proposal-section--dark .next-step p { color: var(--color-grey-light); }
 
     /* Guarantee bar */
-    .guarantee-bar {
+    .guarantee-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-lg); padding: var(--space-lg); background-color: rgba(201, 166, 107, 0.06); border: 1px solid rgba(201, 166, 107, 0.15); margin-top: var(--space-xl); }
+    .guarantee-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9375rem; color: var(--color-grey-light); }
+    .guarantee-item::before { content: '\2713'; display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background-color: rgba(201, 166, 107, 0.15); color: var(--color-bronze); font-size: 0.75rem; flex-shrink: 0; }
+
+    /* Strikethrough & validity */
+    .price-was { text-decoration: line-through; color: var(--color-grey-warm); font-family: var(--font-body); font-size: 1rem; margin-right: 0.5rem; }
+    .validity-notice { display: inline-block; margin-top: var(--space-md); font-size: 0.8125rem; color: var(--color-grey-warm); font-style: italic; }
+
+    /* Footer */
+    .proposal-footer { text-align: center; padding: var(--space-lg) var(--space-md); background-color: var(--color-black); color: var(--color-grey-warm); font-size: 0.8125rem; }
+    .proposal-footer a { color: var(--color-bronze); transition: color 0.3s ease; }
+    .proposal-footer a:hover { color: var(--color-bronze-light); }
+
+    /* ================================================================
+       INTERACTIVE SELECTOR (bottom of proposal)
+       ================================================================ */
+    .selector-section { background-color: var(--color-black); color: var(--color-ivory); padding: var(--space-2xl) var(--space-md) var(--space-xl); }
+    .selector-inner { max-width: 900px; margin: 0 auto; }
+    .selector-section .proposal-header { margin-bottom: var(--space-lg); }
+
+    .sel-group { margin-bottom: var(--space-lg); }
+    .sel-group__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--color-charcoal-medium);
+    }
+    .sel-group__title .hint { font-family: var(--font-body); font-size: 0.75rem; color: var(--color-grey-warm); letter-spacing: 0; text-transform: none; }
+
+    .sel-options { display: grid; gap: 0.6rem; }
+
+    .sel-card {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--space-lg);
-      padding: var(--space-lg);
-      background-color: rgba(201, 166, 107, 0.06);
-      border: 1px solid rgba(201, 166, 107, 0.15);
-      margin-top: var(--space-xl);
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      background-color: var(--color-charcoal-light);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+      user-select: none;
     }
+    .sel-card:hover { background-color: var(--color-charcoal-medium); }
+    .sel-card.selected { border-color: var(--color-bronze); background-color: rgba(201, 166, 107, 0.06); }
 
-    .guarantee-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9375rem;
-      color: var(--color-grey-light);
+    .sel-check {
+      flex-shrink: 0; width: 20px; height: 20px;
+      border: 1.5px solid var(--color-grey-warm);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 0.15rem;
+      transition: all 0.2s ease;
     }
+    .sel-card[data-type="radio"] .sel-check { border-radius: 50%; }
+    .sel-card.selected .sel-check { border-color: var(--color-bronze); background-color: var(--color-bronze); }
+    .sel-check svg { width: 11px; height: 11px; opacity: 0; transition: opacity 0.15s ease; }
+    .sel-card.selected .sel-check svg { opacity: 1; }
 
-    .guarantee-item::before {
-      content: '\2713';
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: rgba(201, 166, 107, 0.15);
-      color: var(--color-bronze);
-      font-size: 0.75rem;
-      flex-shrink: 0;
+    .sel-info { flex: 1; min-width: 0; }
+    .sel-name { font-weight: 500; font-size: 0.9375rem; }
+    .sel-desc { font-size: 0.8125rem; color: var(--color-grey-warm); line-height: 1.5; margin-top: 0.15rem; }
+    .sel-price { flex-shrink: 0; font-family: var(--font-display); font-size: 1.125rem; color: var(--color-bronze); white-space: nowrap; }
+    .sel-price span { font-family: var(--font-body); font-size: 0.6875rem; color: var(--color-grey-warm); }
+
+    /* Fixed build line */
+    .sel-fixed {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 1.25rem;
+      background-color: var(--color-charcoal-light);
+      border-left: 2px solid var(--color-bronze);
+      flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.6rem;
     }
+    .sel-fixed span:first-child { font-size: 0.9375rem; }
+    .sel-fixed .sel-price-fixed { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-bronze); }
+    .sel-fixed .sel-price-was { text-decoration: line-through; color: var(--color-grey-warm); font-size: 0.875rem; margin-right: 0.5rem; }
 
-    /* Footer override */
-    .proposal-footer {
-      text-align: center;
-      padding: var(--space-lg) var(--space-md);
-      background-color: var(--color-black);
-      color: var(--color-grey-warm);
-      font-size: 0.8125rem;
+    /* Totals bar in proposal */
+    .sel-totals {
+      background-color: var(--color-charcoal-medium);
+      padding: 1.5rem;
+      margin-top: var(--space-lg);
     }
+    .sel-totals-inner { max-width: 500px; margin: 0 auto; }
+    .sel-totals-line { display: flex; justify-content: space-between; font-size: 0.8125rem; color: var(--color-grey-light); padding: 0.25rem 0; }
+    .sel-totals-line.empty { color: var(--color-grey-warm); font-style: italic; }
+    .sel-totals-divider { border: none; border-top: 1px solid var(--color-bronze); margin: 0.75rem 0; }
+    .sel-totals-total { display: flex; justify-content: space-between; align-items: baseline; }
+    .sel-totals-total span:last-child { font-family: var(--font-display); font-size: 1.25rem; color: var(--color-bronze); }
 
-    .proposal-footer a {
-      color: var(--color-bronze);
-      transition: color 0.3s ease;
+    .sel-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .sel-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: var(--font-body); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.9rem 1.25rem; cursor: pointer; border: none;
+      transition: all 0.3s ease; text-decoration: none; flex: 1; text-align: center; color: inherit;
     }
+    .sel-btn--primary { background-color: var(--color-bronze); color: var(--color-charcoal); }
+    .sel-btn--primary:hover { background-color: var(--color-bronze-light); }
+    .sel-btn--secondary { background-color: transparent; color: var(--color-ivory); border: 1px solid var(--color-charcoal-medium); }
+    .sel-btn--secondary:hover { border-color: var(--color-grey-warm); }
+    .sel-btn svg { width: 13px; height: 13px; }
 
-    .proposal-footer a:hover {
-      color: var(--color-bronze-light);
-    }
-
-    /* Strikethrough price */
-    .price-was {
-      text-decoration: line-through;
-      color: var(--color-grey-warm);
-      font-family: var(--font-body);
-      font-size: 1rem;
-      margin-right: 0.5rem;
-    }
-
-    /* Validity notice */
-    .validity-notice {
-      display: inline-block;
-      margin-top: var(--space-md);
-      font-size: 0.8125rem;
-      color: var(--color-grey-warm);
-      font-style: italic;
+    @media (max-width: 640px) {
+      .sel-card { flex-wrap: wrap; }
+      .sel-price { width: 100%; padding-left: 2rem; margin-top: 0.2rem; }
     }
 
     /* Hide elements not needed on proposal */
-    .preloader,
-    .cursor,
-    .cursor-dot,
-    .header__nav,
-    .header__cta,
-    .header__menu-toggle,
-    .mobile-nav,
-    .scroll-top {
-      display: none !important;
-    }
-
-    .header {
-      background-color: rgba(10, 10, 10, 0.95) !important;
-      backdrop-filter: blur(20px) !important;
-      -webkit-backdrop-filter: blur(20px) !important;
-    }
-
-    .header.scrolled .header__logo img {
-      filter: brightness(0) invert(1) !important;
-    }
+    .preloader, .cursor, .cursor-dot, .header__nav, .header__cta,
+    .header__menu-toggle, .mobile-nav, .scroll-top { display: none !important; }
+    .header { background-color: rgba(10, 10, 10, 0.95) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; }
+    .header.scrolled .header__logo img { filter: brightness(0) invert(1) !important; }
   </style>
 </head>
 <body>
 
-  <!-- Header (simplified) -->
+  <!-- Header -->
   <header class="header scrolled" id="header" style="background-color: rgba(10, 10, 10, 0.95) !important;">
     <div class="header__inner">
       <div class="header__logo">
@@ -676,7 +343,7 @@
       <p class="proposal-hero__prepared">Prepared exclusively for</p>
       <span class="eyebrow">Luke Jones Furniture</span>
       <h1 class="proposal-hero__title">A Website That Works as Hard as You Do</h1>
-      <p class="proposal-hero__subtitle">A proposal to turn your beautiful craftsmanship into a website that doesn't just look stunning — it brings the right customers to your door.</p>
+      <p class="proposal-hero__subtitle">A proposal to turn your beautiful craftsmanship into a website that doesn't just look stunning &mdash; it brings the right customers to your door.</p>
       <span class="proposal-hero__date">March 2026</span>
     </div>
   </section>
@@ -690,8 +357,8 @@
       </div>
 
       <div class="story-block">
-        <p>You create furniture that transforms homes. Pieces that people live with, cook around, wake up in, and show off to every visitor. That kind of craftsmanship deserves more than a website — it deserves a sales tool that makes potential customers feel confident enough to pick up the phone.</p>
-        <p>Right now, your online presence doesn't reflect the quality of what you build. Visitors land on your site, but how many actually become consultations? How many drift away to competitors because the site didn't quite connect with them emotionally — didn't answer the question every homeowner is silently asking: <em>"Can I trust these people with my home?"</em></p>
+        <p>You create furniture that transforms homes. Pieces that people live with, cook around, wake up in, and show off to every visitor. That kind of craftsmanship deserves more than a website &mdash; it deserves a sales tool that makes potential customers feel confident enough to pick up the phone.</p>
+        <p>Right now, your online presence doesn't reflect the quality of what you build. Visitors land on your site, but how many actually become consultations? How many drift away to competitors because the site didn't quite connect with them emotionally &mdash; didn't answer the question every homeowner is silently asking: <em>"Can I trust these people with my home?"</em></p>
       </div>
 
       <div class="proposal-quote">
@@ -699,7 +366,7 @@
       </div>
 
       <div class="story-block">
-        <p>We've audited your current site against the StoryBrand messaging framework — the same approach used by thousands of businesses to clarify their message and increase conversions. The findings show real opportunity: with the right structure, copy, and technical foundation, your website can become your hardest-working member of staff.</p>
+        <p>We've audited your current site against the StoryBrand messaging framework &mdash; the same approach used by thousands of businesses to clarify their message and increase conversions. The findings show real opportunity: with the right structure, copy, and technical foundation, your website can become your hardest-working member of staff.</p>
       </div>
     </div>
   </section>
@@ -710,7 +377,7 @@
       <div class="proposal-header">
         <span class="eyebrow">The Transformation</span>
         <h2>What Changes for You</h2>
-        <p>Here's what the finished website delivers — not in technical terms, but in real results for your business.</p>
+        <p>Here's what the finished website delivers &mdash; not in technical terms, but in real results for your business.</p>
       </div>
 
       <div class="comparison-grid">
@@ -740,7 +407,7 @@
     </div>
   </section>
 
-  <!-- What We'll Do -->
+  <!-- What's Included -->
   <section class="proposal-section proposal-section--ivory">
     <div class="proposal-inner proposal-inner--wide">
       <div class="proposal-header">
@@ -753,43 +420,38 @@
         <div class="benefit-card">
           <div class="benefit-card__number">01</div>
           <h4>Story-Driven Copy</h4>
-          <p>Every word rewritten using the StoryBrand framework — making your customer the hero and giving them a clear reason to choose you. This isn't marketing fluff. It's a proven narrative structure that builds trust and drives action.</p>
+          <p>Every word rewritten using the StoryBrand framework &mdash; making your customer the hero and giving them a clear reason to choose you. This isn't marketing fluff. It's a proven narrative structure that builds trust and drives action.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__number">02</div>
           <h4>Photography That Sells</h4>
           <p>We'll work with your best project images to showcase your craftsmanship in a way that makes homeowners picture your work in their own home. The right image in the right place can be the difference between a bounce and a booking.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__number">03</div>
           <h4>Built for Speed &amp; Search</h4>
-          <p>A modern, fast-loading site built on Next.js — the same technology used by the world's top brands. Pages load instantly, Google loves it, and it's future-proof for years to come.</p>
+          <p>A modern, fast-loading site built on Next.js &mdash; the same technology used by the world's top brands. Pages load instantly, Google loves it, and it's future-proof for years to come.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__number">04</div>
           <h4>Found on Google</h4>
-          <p>Full on-page SEO setup so homeowners searching for "bespoke kitchens Hertfordshire" or "custom furniture near me" find you — not your competitors. Includes structured data that helps Google understand exactly what you offer and where.</p>
+          <p>Full on-page SEO setup so homeowners searching for "bespoke kitchens Hertfordshire" or "custom furniture near me" find you &mdash; not your competitors. Includes structured data that helps Google understand exactly what you offer and where.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__number">05</div>
           <h4>Know What's Working</h4>
-          <p>Analytics installed from day one so you can see how many people visit, which pages they love, and where they drop off. No guesswork — just clear data to make smarter decisions.</p>
+          <p>Analytics installed from day one so you can see how many people visit, which pages they love, and where they drop off. No guesswork &mdash; just clear data to make smarter decisions.</p>
         </div>
-
         <div class="benefit-card">
           <div class="benefit-card__number">06</div>
           <h4>Hassle-Free Hosting</h4>
-          <p>Fast, secure hosting included. We handle the technical side — updates, backups, security — so you never have to think about it. If something breaks at 2am, that's our problem, not yours.</p>
+          <p>Fast, secure hosting included. We handle the technical side &mdash; updates, backups, security &mdash; so you never have to think about it. If something breaks at 2am, that's our problem, not yours.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Social Proof / StoryBrand Messaging Detail -->
+  <!-- StoryBrand Advantage -->
   <section class="proposal-section proposal-section--cream">
     <div class="proposal-inner">
       <div class="proposal-header">
@@ -799,44 +461,42 @@
 
       <div class="story-block">
         <p>Most websites focus on looking good. Yours already does that. The missing piece is <strong>what the website says and how it makes people feel</strong>.</p>
-        <p>The StoryBrand framework, developed by Donald Miller, is used by over 10,000 businesses worldwide. It's based on a simple insight: customers don't buy the best product — they buy the one they understand the fastest.</p>
+        <p>The StoryBrand framework, developed by Donald Miller, is used by over 10,000 businesses worldwide. It's based on a simple insight: customers don't buy the best product &mdash; they buy the one they understand the fastest.</p>
         <p>Right now, your site tells visitors what you do. After our rebuild, it will answer the three questions every visitor asks within five seconds:</p>
       </div>
 
       <div class="benefits-grid" style="grid-template-columns: 1fr;">
         <div class="benefit-card" style="max-width: none;">
-          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-lg);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg);">
-              <div>
-                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">1. What do you offer?</h4>
-                <p>Immediately clear — no guessing, no jargon.</p>
-              </div>
-              <div>
-                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">2. How will it improve my life?</h4>
-                <p>An aspirational picture of life with your furniture.</p>
-              </div>
-              <div>
-                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">3. What do I do next?</h4>
-                <p>A clear, confident call to action — every time.</p>
-              </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg);">
+            <div>
+              <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">1. What do you offer?</h4>
+              <p>Immediately clear &mdash; no guessing, no jargon.</p>
+            </div>
+            <div>
+              <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">2. How will it improve my life?</h4>
+              <p>An aspirational picture of life with your furniture.</p>
+            </div>
+            <div>
+              <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">3. What do I do next?</h4>
+              <p>A clear, confident call to action &mdash; every time.</p>
             </div>
           </div>
         </div>
       </div>
 
       <div class="story-block" style="margin-top: var(--space-xl);">
-        <p>We'll also add testimonials, a clear step-by-step process, and a section that paints a picture of what life looks like <em>after</em> working with Luke Jones Furniture. These aren't nice-to-haves — they're the building blocks of trust.</p>
+        <p>We'll also add testimonials, a clear step-by-step process, and a section that paints a picture of what life looks like <em>after</em> working with Luke Jones Furniture. These aren't nice-to-haves &mdash; they're the building blocks of trust.</p>
       </div>
     </div>
   </section>
 
-  <!-- Your Investment -->
+  <!-- Your Investment (Build) -->
   <section class="proposal-section proposal-section--black" id="investment">
     <div class="proposal-inner proposal-inner--wide">
       <div class="proposal-header">
         <span class="eyebrow">Your Investment</span>
         <h2>Website Build</h2>
-        <p>A complete website rebuild — story-driven copy, modern technology, SEO foundation, analytics, and hosting. Everything you need, nothing you don't.</p>
+        <p>A complete website rebuild &mdash; story-driven copy, modern technology, SEO foundation, analytics, and hosting. Delivered in approximately 4 weeks.</p>
       </div>
 
       <div class="investment-summary" style="margin-top: 0;">
@@ -848,7 +508,19 @@
           <span>Your investment</span>
           <span>&pound;500</span>
         </div>
-        <p class="validity-notice">One-off build cost. Includes StoryBrand copy, Next.js rebuild, SEO setup, analytics &amp; launch.</p>
+
+        <div class="payment-terms">
+          <div class="payment-term">
+            <div class="payment-term__label">On agreement</div>
+            <div class="payment-term__amount">&pound;250</div>
+          </div>
+          <div class="payment-term">
+            <div class="payment-term__label">On delivery</div>
+            <div class="payment-term__amount">&pound;250</div>
+          </div>
+        </div>
+
+        <p class="validity-notice">Includes StoryBrand copy, Next.js rebuild, SEO setup, analytics &amp; launch. Approx. 4 week turnaround.</p>
       </div>
     </div>
   </section>
@@ -859,25 +531,23 @@
       <div class="proposal-header">
         <span class="eyebrow">Ongoing Partnership</span>
         <h2>Choose Your Level of Support</h2>
-        <p>Your website shouldn't be something you set and forget. Choose the level of ongoing care that fits where you are now — and upgrade any time as you grow.</p>
+        <p>Your website shouldn't be something you set and forget. Choose the level of ongoing care that fits where you are now &mdash; and upgrade any time as you grow.</p>
       </div>
 
       <div class="pricing-grid">
-        <!-- Foundation -->
         <div class="pricing-card">
           <div class="pricing-card__name">Foundation</div>
           <div class="pricing-card__tagline">Keep it running, keep it safe</div>
-          <div class="pricing-card__price">&pound;50 <span>/ month</span></div>
-          <div class="pricing-card__period">Hassle-free website care</div>
+          <div class="pricing-card__price"><span class="price-was" style="font-size: 0.875rem;">&pound;79</span> &pound;50 <span>/ month</span></div>
+          <div class="pricing-card__period">Discounted rate for you &mdash; hassle-free website care</div>
           <ul class="pricing-card__features">
             <li>Fast, secure hosting &amp; daily backups</li>
             <li>Security monitoring &amp; updates</li>
-            <li>1 monthly tweak included (opening hours, small text changes — use it or lose it)</li>
+            <li>1 monthly tweak included (opening hours, small text changes &mdash; use it or lose it)</li>
             <li>Email support</li>
           </ul>
         </div>
 
-        <!-- Growth -->
         <div class="pricing-card pricing-card--featured">
           <div class="pricing-card__name">Growth</div>
           <div class="pricing-card__tagline">Improve every month</div>
@@ -886,12 +556,11 @@
           <ul class="pricing-card__features">
             <li>Everything in Foundation</li>
             <li>3 monthly tweaks included (use it or lose it each month)</li>
-            <li>Monthly performance report — see how your site is doing in plain English</li>
-            <li>Quarterly growth strategy call — we review the data together and plan what's next</li>
+            <li>Monthly performance report &mdash; see how your site is doing in plain English</li>
+            <li>Quarterly growth strategy call &mdash; we review the data together and plan what's next</li>
           </ul>
         </div>
 
-        <!-- Accelerator -->
         <div class="pricing-card">
           <div class="pricing-card__name">Accelerator</div>
           <div class="pricing-card__tagline">Your website as a growth engine</div>
@@ -901,7 +570,7 @@
             <li>Everything in Growth</li>
             <li>We actively manage your content based on what the data tells us works</li>
             <li>We test different headlines, layouts and calls-to-action to increase enquiries</li>
-            <li>Sales funnel development — from first visit to email nurture to consultation booking</li>
+            <li>Sales funnel development &mdash; from first visit to email nurture to consultation booking</li>
             <li>Priority support</li>
           </ul>
         </div>
@@ -916,25 +585,40 @@
         </div>
 
         <div class="addons-grid">
-          <!-- CRM -->
           <div class="addon-card">
             <div class="addon-card__name">Smart Follow-Up</div>
             <div class="addon-card__price">&pound;21 <span>/ month</span></div>
-            <p>Never let a lead go cold. Every enquiry is automatically logged, followed up, and tracked — so you always know who's interested, who needs a nudge, and who's ready to go. No more sticky notes or forgotten emails. Complete transparency on every prospect.</p>
+            <p>Never let a lead go cold. Every enquiry is automatically logged, followed up, and tracked &mdash; so you always know who's interested, who needs a nudge, and who's ready to go. No more sticky notes or forgotten emails.</p>
           </div>
 
-          <!-- AI Concierge -->
           <div class="addon-card">
             <div class="addon-card__name">AI Concierge</div>
             <div class="addon-card__price">&pound;21 <span>/ month</span></div>
-            <p>A 24/7 personal assistant on your website that answers questions, shares your portfolio, and guides visitors toward booking a consultation — even when you're in the workshop. It's like having your best salesperson available around the clock, never taking a day off.</p>
+            <p>A 24/7 personal assistant on your website that answers questions, shares your portfolio, and guides visitors toward booking a consultation &mdash; even when you're in the workshop. Like having your best salesperson available around the clock.</p>
           </div>
 
-          <!-- SEO -->
           <div class="addon-card">
             <div class="addon-card__name">Local Growth</div>
             <div class="addon-card__price">&pound;200 <span>/ month</span></div>
-            <p>An ongoing campaign to get you found by homeowners in Hertfordshire and beyond. We create location-targeted content, fine-tune your Google Business profile, and send you a clear monthly report showing your progress. More visibility means more of the right enquiries.</p>
+            <p>An ongoing campaign to get you found by homeowners in Hertfordshire and beyond. We create location-targeted content, fine-tune your Google Business profile, and send you a clear monthly report showing your progress.</p>
+          </div>
+
+          <div class="addon-card">
+            <div class="addon-card__name">Reputation Engine</div>
+            <div class="addon-card__price">&pound;59 <span>/ month</span></div>
+            <p>Build a wall of 5-star reviews that sells for you. We set up a simple system where you choose when to request a review &mdash; one tap sends a polished request to your happy clients. We monitor and respond to reviews across Google, Houzz and Trustpilot so your reputation grows on autopilot.</p>
+          </div>
+
+          <div class="addon-card">
+            <div class="addon-card__name">Project Story</div>
+            <div class="addon-card__price">&pound;150 <span>/ month</span></div>
+            <p>One completed project per month turned into a rich, detailed case study: the brief, the challenges, the solution, and a client quote. Using your professional photography, we craft the narrative that helps future customers see themselves in your work. These become the most powerful pages on your site for both trust and search rankings.</p>
+          </div>
+
+          <div class="addon-card">
+            <div class="addon-card__name">Project Story</div>
+            <div class="addon-card__price">&pound;200 <span>one-off</span></div>
+            <p>A single project case study crafted from your existing photography. The same detailed storytelling &mdash; the brief, the journey, the result &mdash; delivered as a standalone page whenever you complete a project you're proud of. Perfect if you'd prefer to commission them as and when.</p>
           </div>
         </div>
       </div>
@@ -943,7 +627,7 @@
       <div class="guarantee-bar">
         <div class="guarantee-item">No long-term contracts</div>
         <div class="guarantee-item">Cancel any time</div>
-        <div class="guarantee-item">Your site, your data — always</div>
+        <div class="guarantee-item">Your site, your data &mdash; always</div>
       </div>
     </div>
   </section>
@@ -960,17 +644,141 @@
         <div class="next-step">
           <div class="next-step__number">1</div>
           <h4>Say Yes</h4>
-          <p>Let us know you'd like to go ahead. We'll send a simple agreement and get the ball rolling — no lengthy paperwork.</p>
+          <p>Let us know you'd like to go ahead. We'll send a simple agreement and take the first 50% to get started &mdash; no lengthy paperwork.</p>
         </div>
         <div class="next-step">
           <div class="next-step__number">2</div>
           <h4>We Build It</h4>
-          <p>We'll gather your best photography, write the new story-driven copy, and build the site. You'll see it before it goes live and have the chance to refine anything.</p>
+          <p>Over approximately 4 weeks we gather your best photography, write the new story-driven copy, and build the site. You'll see it before it goes live and have the chance to refine anything.</p>
         </div>
         <div class="next-step">
           <div class="next-step__number">3</div>
           <h4>Watch It Work</h4>
-          <p>Your new website goes live and starts doing what it should — bringing the right customers to your door and making them confident enough to get in touch.</p>
+          <p>Your new website goes live (remaining 50% due on delivery) and starts doing what it should &mdash; bringing the right customers to your door and making them confident enough to get in touch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       INTERACTIVE PACKAGE SELECTOR
+       ================================================================ -->
+  <section class="selector-section" id="select">
+    <div class="selector-inner">
+      <div class="proposal-header">
+        <span class="eyebrow">Your Package</span>
+        <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Select What You'd Like</h2>
+        <p style="color: var(--color-grey-light);">Tick the options that interest you. The total updates as you go, and you can email your selections straight to us.</p>
+      </div>
+
+      <!-- Build (fixed) -->
+      <div class="sel-group">
+        <div class="sel-group__title">Website Build</div>
+        <div class="sel-fixed">
+          <span>Complete rebuild &mdash; StoryBrand copy, Next.js, SEO, analytics &amp; hosting</span>
+          <span class="sel-price-fixed"><span class="sel-price-was">&pound;2,000</span> &pound;500</span>
+        </div>
+        <div style="font-size: 0.8125rem; color: var(--color-grey-warm); padding: 0.5rem 1.25rem;">50% on agreement (&pound;250) &bull; 50% on delivery (&pound;250) &bull; Approx. 4 weeks</div>
+      </div>
+
+      <!-- Package (radio) -->
+      <div class="sel-group">
+        <div class="sel-group__title">Monthly Package <span class="hint">(choose one)</span></div>
+        <div class="sel-options" id="selPackage">
+          <div class="sel-card selected" data-type="radio" data-name="Foundation" data-price="50" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Foundation &mdash; <span class="price-was" style="font-size: 0.8rem;">&pound;79</span> &pound;50/mo</div>
+              <div class="sel-desc">Hosting, security, backups &amp; 1 monthly tweak. Hassle-free.</div>
+            </div>
+            <div class="sel-price">&pound;50 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="radio" data-name="Growth" data-price="107" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Growth &mdash; &pound;107/mo</div>
+              <div class="sel-desc">3 monthly tweaks, monthly report &amp; quarterly strategy call.</div>
+            </div>
+            <div class="sel-price">&pound;107 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="radio" data-name="Accelerator" data-price="297" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Accelerator &mdash; &pound;297/mo</div>
+              <div class="sel-desc">Content management, A/B testing &amp; sales funnel development.</div>
+            </div>
+            <div class="sel-price">&pound;297 <span>/mo</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-ons (checkboxes) -->
+      <div class="sel-group">
+        <div class="sel-group__title">Add-Ons <span class="hint">(select any)</span></div>
+        <div class="sel-options" id="selAddons">
+          <div class="sel-card" data-type="checkbox" data-name="Smart Follow-Up (CRM)" data-price="21" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Smart Follow-Up &mdash; &pound;21/mo</div>
+              <div class="sel-desc">Automated lead tracking, follow-up reminders &amp; prospect database.</div>
+            </div>
+            <div class="sel-price">&pound;21 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="checkbox" data-name="AI Concierge" data-price="21" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">AI Concierge &mdash; &pound;21/mo</div>
+              <div class="sel-desc">24/7 website assistant that answers questions &amp; guides visitors to book.</div>
+            </div>
+            <div class="sel-price">&pound;21 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="checkbox" data-name="Local Growth (SEO)" data-price="200" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Local Growth &mdash; &pound;200/mo</div>
+              <div class="sel-desc">Ongoing SEO campaign, location content, Google profile &amp; monthly reporting.</div>
+            </div>
+            <div class="sel-price">&pound;200 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="checkbox" data-name="Reputation Engine" data-price="59" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Reputation Engine &mdash; &pound;59/mo</div>
+              <div class="sel-desc">Push-button review requests, monitoring across Google/Houzz/Trustpilot &amp; professional responses.</div>
+            </div>
+            <div class="sel-price">&pound;59 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="checkbox" data-name="Project Story (monthly)" data-price="150" data-pricetype="monthly">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Project Story &mdash; &pound;150/mo</div>
+              <div class="sel-desc">1 completed project per month turned into a rich case study using your photography.</div>
+            </div>
+            <div class="sel-price">&pound;150 <span>/mo</span></div>
+          </div>
+          <div class="sel-card" data-type="checkbox" data-name="Project Story (one-off)" data-price="200" data-pricetype="oneoff">
+            <div class="sel-check"><svg viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div>
+            <div class="sel-info">
+              <div class="sel-name">Project Story &mdash; &pound;200 one-off</div>
+              <div class="sel-desc">A single project case study from your existing photography, commissioned as and when.</div>
+            </div>
+            <div class="sel-price">&pound;200 <span>once</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Totals -->
+      <div class="sel-totals">
+        <div class="sel-totals-inner" id="selTotals"></div>
+        <div class="sel-actions">
+          <button class="sel-btn sel-btn--secondary" onclick="downloadJSON()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Save JSON
+          </button>
+          <a class="sel-btn sel-btn--primary" id="emailBtn" href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email My Selections
+          </a>
         </div>
       </div>
     </div>
@@ -983,7 +791,7 @@
       <h2 class="cta-section__title">Ready to Turn Visitors into Consultations?</h2>
       <p class="cta-section__text">This proposal is valid for 30 days. If you have any questions at all, I'm a phone call away.</p>
       <div class="cta-section__buttons">
-        <a href="mailto:danny@hertfordshirewebsites.com?subject=Luke%20Jones%20Furniture%20-%20Let's%20Go" class="btn btn--primary"><span>Let's Go — I'm In</span></a>
+        <a href="#select" class="btn btn--primary"><span>Select Your Package</span></a>
         <a href="tel:+447000000000" class="btn btn--light"><span>Let's Talk It Through</span></a>
       </div>
       <p class="cta-section__phone">Danny &mdash; <a href="https://hertfordshirewebsites.com">Hertfordshire Websites</a></p>
@@ -995,6 +803,129 @@
     <p>This proposal was prepared exclusively for Luke Jones Furniture by <a href="https://hertfordshirewebsites.com">Hertfordshire Websites</a>.</p>
     <p style="margin-top: 0.5rem;">Confidential &mdash; March 2026</p>
   </footer>
+
+  <script>
+    var BUILD_COST = 500;
+
+    function getSelections() {
+      var pkgCard = document.querySelector('#selPackage .sel-card.selected');
+      var pkg = { name: pkgCard.dataset.name, price: parseInt(pkgCard.dataset.price) };
+
+      var addonsMonthly = [];
+      var addonsOneoff = [];
+
+      document.querySelectorAll('#selAddons .sel-card.selected').forEach(function(card) {
+        var item = { name: card.dataset.name, price: parseInt(card.dataset.price) };
+        if (card.dataset.pricetype === 'oneoff') {
+          addonsOneoff.push(item);
+        } else {
+          addonsMonthly.push(item);
+        }
+      });
+
+      var totalOneoff = BUILD_COST + addonsOneoff.reduce(function(s, a) { return s + a.price; }, 0);
+      var totalMonthly = pkg.price + addonsMonthly.reduce(function(s, a) { return s + a.price; }, 0);
+
+      return {
+        client: 'Luke Jones Furniture',
+        date: new Date().toISOString().split('T')[0],
+        build: { name: 'Website Rebuild', price: BUILD_COST },
+        package: pkg,
+        addonsMonthly: addonsMonthly,
+        addonsOneoff: addonsOneoff,
+        totals: { oneOff: totalOneoff, monthly: totalMonthly }
+      };
+    }
+
+    function updateSummary() {
+      var sel = getSelections();
+      var el = document.getElementById('selTotals');
+      var html = '';
+
+      html += '<div class="sel-totals-line"><span>Website build</span><span>\u00A3' + sel.build.price + '</span></div>';
+
+      sel.addonsOneoff.forEach(function(a) {
+        html += '<div class="sel-totals-line"><span>' + a.name + '</span><span>\u00A3' + a.price + '</span></div>';
+      });
+
+      html += '<div class="sel-totals-line"><span>' + sel.package.name + ' package</span><span>\u00A3' + sel.package.price + '/mo</span></div>';
+
+      sel.addonsMonthly.forEach(function(a) {
+        html += '<div class="sel-totals-line"><span>' + a.name + '</span><span>\u00A3' + a.price + '/mo</span></div>';
+      });
+
+      if (sel.addonsMonthly.length === 0 && sel.addonsOneoff.length === 0) {
+        html += '<div class="sel-totals-line empty"><span>No add-ons selected</span><span></span></div>';
+      }
+
+      html += '<hr class="sel-totals-divider">';
+      html += '<div class="sel-totals-total"><span>Total one-off</span><span>\u00A3' + sel.totals.oneOff + '</span></div>';
+      html += '<div class="sel-totals-total" style="margin-top:0.25rem;"><span>Total monthly</span><span>\u00A3' + sel.totals.monthly + '/mo</span></div>';
+
+      el.innerHTML = html;
+
+      // mailto
+      var subject = encodeURIComponent('Luke Jones Furniture - Package Selection');
+      var lines = [
+        'LUKE JONES FURNITURE - SELECTED PACKAGE',
+        '========================================',
+        '',
+        'Website Build: \u00A3' + sel.build.price + ' (one-off, 50% upfront / 50% on delivery)',
+        '',
+        'Monthly Package: ' + sel.package.name + ' - \u00A3' + sel.package.price + '/mo'
+      ];
+
+      if (sel.addonsMonthly.length > 0) {
+        lines.push('');
+        lines.push('Monthly Add-ons:');
+        sel.addonsMonthly.forEach(function(a) { lines.push('  - ' + a.name + ': \u00A3' + a.price + '/mo'); });
+      }
+
+      if (sel.addonsOneoff.length > 0) {
+        lines.push('');
+        lines.push('One-off Add-ons:');
+        sel.addonsOneoff.forEach(function(a) { lines.push('  - ' + a.name + ': \u00A3' + a.price); });
+      }
+
+      lines.push('');
+      lines.push('----------------------------------------');
+      lines.push('TOTAL ONE-OFF:  \u00A3' + sel.totals.oneOff);
+      lines.push('TOTAL MONTHLY:  \u00A3' + sel.totals.monthly + '/mo');
+      lines.push('');
+      lines.push('Selected on: ' + sel.date);
+
+      var body = encodeURIComponent(lines.join('\n'));
+      document.getElementById('emailBtn').href = 'mailto:daniel@dreamfree.co.uk?subject=' + subject + '&body=' + body;
+    }
+
+    // Click handling
+    document.querySelectorAll('.sel-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var group = card.closest('.sel-options');
+        if (card.dataset.type === 'radio') {
+          group.querySelectorAll('.sel-card').forEach(function(c) { c.classList.remove('selected'); });
+          card.classList.add('selected');
+        } else {
+          card.classList.toggle('selected');
+        }
+        updateSummary();
+      });
+    });
+
+    function downloadJSON() {
+      var sel = getSelections();
+      var json = JSON.stringify(sel, null, 2);
+      var blob = new Blob([json], { type: 'application/json' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'luke-jones-package-' + sel.date + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    updateSummary();
+  </script>
 
 </body>
 </html>
