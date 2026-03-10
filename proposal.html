@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Website Proposal for Luke Jones Furniture | Hertfordshire Websites</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Base Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=5">
+
+  <style>
+    /* ==========================================================================
+       PROPOSAL PAGE STYLES
+       ========================================================================== */
+
+    /* Override hero for proposal */
+    .proposal-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-charcoal);
+      color: var(--color-ivory);
+      text-align: center;
+      padding: calc(var(--header-height) + var(--space-xl)) var(--space-md) var(--space-xl);
+      overflow: hidden;
+    }
+
+    .proposal-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(201, 166, 107, 0.08) 0%, transparent 70%);
+    }
+
+    .proposal-hero__content {
+      position: relative;
+      max-width: 800px;
+    }
+
+    .proposal-hero__prepared {
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .proposal-hero__title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: var(--space-md);
+      line-height: 1.05;
+    }
+
+    .proposal-hero__subtitle {
+      font-size: 1.125rem;
+      color: var(--color-grey-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .proposal-hero__date {
+      display: inline-block;
+      margin-top: var(--space-lg);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-bronze);
+      border-top: 1px solid rgba(201, 166, 107, 0.3);
+      padding-top: var(--space-sm);
+    }
+
+    /* Proposal Sections */
+    .proposal-section {
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .proposal-section {
+        padding: var(--space-2xl) var(--space-md);
+      }
+    }
+
+    .proposal-section--ivory {
+      background-color: var(--color-ivory);
+    }
+
+    .proposal-section--cream {
+      background-color: var(--color-cream);
+    }
+
+    .proposal-section--dark {
+      background-color: var(--color-charcoal);
+      color: var(--color-ivory);
+    }
+
+    .proposal-section--black {
+      background-color: var(--color-black);
+      color: var(--color-ivory);
+    }
+
+    .proposal-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .proposal-inner--wide {
+      max-width: 1200px;
+    }
+
+    /* Section Headers */
+    .proposal-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .proposal-header h2 {
+      margin-bottom: var(--space-sm);
+    }
+
+    .proposal-header p {
+      color: var(--color-grey-warm);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .proposal-section--dark .proposal-header p,
+    .proposal-section--black .proposal-header p {
+      color: var(--color-grey-light);
+    }
+
+    /* Story Blocks */
+    .story-block {
+      margin-bottom: var(--space-xl);
+    }
+
+    .story-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-block h3 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      margin-bottom: var(--space-md);
+    }
+
+    .story-block p {
+      color: var(--color-grey-warm);
+      margin-bottom: var(--space-sm);
+      line-height: 1.9;
+    }
+
+    .story-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .proposal-section--dark .story-block p,
+    .proposal-section--black .story-block p {
+      color: var(--color-grey-light);
+    }
+
+    /* Highlight Quote */
+    .proposal-quote {
+      border-left: 2px solid var(--color-bronze);
+      padding-left: var(--space-md);
+      margin: var(--space-lg) 0;
+    }
+
+    .proposal-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--color-charcoal) !important;
+    }
+
+    .proposal-section--dark .proposal-quote p,
+    .proposal-section--black .proposal-quote p {
+      color: var(--color-ivory) !important;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .benefit-card {
+      padding: var(--space-lg);
+      background-color: var(--color-cream);
+      border-top: 2px solid var(--color-bronze);
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .proposal-section--dark .benefit-card,
+    .proposal-section--black .benefit-card {
+      background-color: var(--color-charcoal-light);
+    }
+
+    .benefit-card__number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--color-ivory-dark);
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .proposal-section--dark .benefit-card__number,
+    .proposal-section--black .benefit-card__number {
+      color: var(--color-charcoal-medium);
+    }
+
+    .benefit-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .benefit-card p {
+      color: var(--color-grey-warm);
+      font-size: 0.9375rem;
+    }
+
+    .proposal-section--dark .benefit-card p,
+    .proposal-section--black .benefit-card p {
+      color: var(--color-grey-light);
+    }
+
+    /* Pricing Section */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+        align-items: start;
+      }
+    }
+
+    .pricing-card {
+      padding: var(--space-lg);
+      background-color: var(--color-charcoal-light);
+      position: relative;
+      transition: transform 0.4s var(--ease-out-expo);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card--featured {
+      border: 1px solid var(--color-bronze);
+    }
+
+    .pricing-card--featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--color-bronze);
+      color: var(--color-charcoal);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .pricing-card--featured {
+      padding-top: calc(var(--space-lg) + 1.5rem);
+    }
+
+    .pricing-card__name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .pricing-card__tagline {
+      font-size: 0.875rem;
+      color: var(--color-grey-warm);
+      margin-bottom: var(--space-md);
+    }
+
+    .pricing-card__price {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--color-bronze);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card__price span {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-grey-warm);
+    }
+
+    .pricing-card__period {
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--color-charcoal-medium);
+    }
+
+    .pricing-card__features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pricing-card__features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      color: var(--color-grey-light);
+      padding: 0.6rem 0;
+    }
+
+    .pricing-card__features li::before {
+      content: '\2713';
+      color: var(--color-bronze);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* Add-ons */
+    .addons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+
+    @media (min-width: 768px) {
+      .addons-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .addon-card {
+      padding: var(--space-lg);
+      background-color: var(--color-charcoal-light);
+      border-left: 2px solid var(--color-bronze);
+    }
+
+    .addon-card__name {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      margin-bottom: var(--space-xs);
+    }
+
+    .addon-card__price {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--color-bronze);
+      margin-bottom: var(--space-sm);
+    }
+
+    .addon-card__price span {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+    }
+
+    .addon-card p {
+      color: var(--color-grey-light);
+      font-size: 0.9375rem;
+    }
+
+    /* Investment Summary */
+    .investment-summary {
+      background-color: var(--color-charcoal-medium);
+      padding: var(--space-lg);
+      margin-top: var(--space-xl);
+      text-align: center;
+    }
+
+    .investment-summary h3 {
+      font-size: 1.75rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .investment-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .investment-row:last-of-type {
+      border-bottom: none;
+    }
+
+    .investment-row span:first-child {
+      color: var(--color-grey-light);
+      font-size: 0.9375rem;
+    }
+
+    .investment-row span:last-child {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-ivory);
+    }
+
+    .investment-total {
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--color-bronze);
+    }
+
+    .investment-total span:last-child {
+      color: var(--color-bronze) !important;
+      font-size: 1.5rem !important;
+    }
+
+    /* Comparison before/after */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+    }
+
+    .comparison-col {
+      padding: var(--space-lg);
+    }
+
+    .comparison-col--before {
+      background-color: rgba(255,255,255,0.03);
+      border-top: 2px solid var(--color-grey-warm);
+    }
+
+    .comparison-col--after {
+      background-color: rgba(201, 166, 107, 0.05);
+      border-top: 2px solid var(--color-bronze);
+    }
+
+    .comparison-col h3 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .comparison-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .comparison-col ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      color: var(--color-grey-light);
+      padding: 0.5rem 0;
+    }
+
+    .comparison-col--before ul li::before {
+      content: '\2717';
+      color: var(--color-grey-warm);
+      flex-shrink: 0;
+    }
+
+    .comparison-col--after ul li::before {
+      content: '\2713';
+      color: var(--color-bronze);
+      flex-shrink: 0;
+    }
+
+    /* Divider line */
+    .proposal-divider {
+      width: 60px;
+      height: 1px;
+      background-color: var(--color-bronze);
+      margin: 0 auto var(--space-lg);
+    }
+
+    /* Next Steps */
+    .next-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    @media (min-width: 768px) {
+      .next-steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .next-step {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+    }
+
+    .next-step__number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border: 1px solid var(--color-bronze);
+      border-radius: 50%;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-bronze);
+      margin-bottom: var(--space-md);
+    }
+
+    .next-step h4 {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .next-step p {
+      color: var(--color-grey-warm);
+      font-size: 0.9375rem;
+    }
+
+    .proposal-section--dark .next-step p {
+      color: var(--color-grey-light);
+    }
+
+    /* Guarantee bar */
+    .guarantee-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      background-color: rgba(201, 166, 107, 0.06);
+      border: 1px solid rgba(201, 166, 107, 0.15);
+      margin-top: var(--space-xl);
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      color: var(--color-grey-light);
+    }
+
+    .guarantee-item::before {
+      content: '\2713';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: rgba(201, 166, 107, 0.15);
+      color: var(--color-bronze);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* Footer override */
+    .proposal-footer {
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      background-color: var(--color-black);
+      color: var(--color-grey-warm);
+      font-size: 0.8125rem;
+    }
+
+    .proposal-footer a {
+      color: var(--color-bronze);
+      transition: color 0.3s ease;
+    }
+
+    .proposal-footer a:hover {
+      color: var(--color-bronze-light);
+    }
+
+    /* Strikethrough price */
+    .price-was {
+      text-decoration: line-through;
+      color: var(--color-grey-warm);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Validity notice */
+    .validity-notice {
+      display: inline-block;
+      margin-top: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-grey-warm);
+      font-style: italic;
+    }
+
+    /* Hide elements not needed on proposal */
+    .preloader,
+    .cursor,
+    .cursor-dot,
+    .header__nav,
+    .header__cta,
+    .header__menu-toggle,
+    .mobile-nav,
+    .scroll-top {
+      display: none !important;
+    }
+
+    .header {
+      background-color: rgba(10, 10, 10, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+    }
+
+    .header.scrolled .header__logo img {
+      filter: brightness(0) invert(1) !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header (simplified) -->
+  <header class="header scrolled" id="header" style="background-color: rgba(10, 10, 10, 0.95) !important;">
+    <div class="header__inner">
+      <div class="header__logo">
+        <a href="index.html">
+          <img src="images/Luke-Jones-Type-Logo.png" alt="Luke Jones Furniture" class="header__logo-img" style="filter: brightness(0) invert(1) !important;">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="proposal-hero">
+    <div class="proposal-hero__content">
+      <p class="proposal-hero__prepared">Prepared exclusively for</p>
+      <span class="eyebrow">Luke Jones Furniture</span>
+      <h1 class="proposal-hero__title">A Website That Works as Hard as You Do</h1>
+      <p class="proposal-hero__subtitle">A proposal to turn your beautiful craftsmanship into a website that doesn't just look stunning — it brings the right customers to your door.</p>
+      <span class="proposal-hero__date">March 2026</span>
+    </div>
+  </section>
+
+  <!-- The Opportunity -->
+  <section class="proposal-section proposal-section--cream">
+    <div class="proposal-inner">
+      <div class="proposal-header">
+        <span class="eyebrow">The Opportunity</span>
+        <h2>Your Work Speaks for Itself. Your Website Should Too.</h2>
+      </div>
+
+      <div class="story-block">
+        <p>You create furniture that transforms homes. Pieces that people live with, cook around, wake up in, and show off to every visitor. That kind of craftsmanship deserves more than a website — it deserves a sales tool that makes potential customers feel confident enough to pick up the phone.</p>
+        <p>Right now, your online presence doesn't reflect the quality of what you build. Visitors land on your site, but how many actually become consultations? How many drift away to competitors because the site didn't quite connect with them emotionally — didn't answer the question every homeowner is silently asking: <em>"Can I trust these people with my home?"</em></p>
+      </div>
+
+      <div class="proposal-quote">
+        <p>The goal isn't a prettier website. It's a website that makes the phone ring.</p>
+      </div>
+
+      <div class="story-block">
+        <p>We've audited your current site against the StoryBrand messaging framework — the same approach used by thousands of businesses to clarify their message and increase conversions. The findings show real opportunity: with the right structure, copy, and technical foundation, your website can become your hardest-working member of staff.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section class="proposal-section proposal-section--dark">
+    <div class="proposal-inner proposal-inner--wide">
+      <div class="proposal-header">
+        <span class="eyebrow">The Transformation</span>
+        <h2>What Changes for You</h2>
+        <p>Here's what the finished website delivers — not in technical terms, but in real results for your business.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="comparison-col comparison-col--before">
+          <h3>Where You Are Now</h3>
+          <ul>
+            <li>Visitors browse but don't get in touch</li>
+            <li>No clear path from "I like this" to "I want a consultation"</li>
+            <li>Beautiful work buried without an emotional story around it</li>
+            <li>No way to capture interest from visitors who aren't ready today</li>
+            <li>Invisible to Google for local searches like "bespoke kitchens Hertfordshire"</li>
+            <li>No idea which pages people visit or where they drop off</li>
+          </ul>
+        </div>
+        <div class="comparison-col comparison-col--after">
+          <h3>Where We Take You</h3>
+          <ul>
+            <li>A clear, compelling story that builds trust within seconds</li>
+            <li>Every page guides visitors naturally toward booking a consultation</li>
+            <li>Your craftsmanship showcased with copy that speaks to how people feel</li>
+            <li>A lead capture system so interested visitors don't slip away</li>
+            <li>Found by homeowners actively searching for bespoke furniture near you</li>
+            <li>Clear data showing exactly how your website is performing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We'll Do -->
+  <section class="proposal-section proposal-section--ivory">
+    <div class="proposal-inner proposal-inner--wide">
+      <div class="proposal-header">
+        <span class="eyebrow">What's Included</span>
+        <h2>Everything Your Website Needs to Perform</h2>
+        <p>A complete rebuild focused on one outcome: turning visitors into consultations.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-card__number">01</div>
+          <h4>Story-Driven Copy</h4>
+          <p>Every word rewritten using the StoryBrand framework — making your customer the hero and giving them a clear reason to choose you. This isn't marketing fluff. It's a proven narrative structure that builds trust and drives action.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card__number">02</div>
+          <h4>Photography That Sells</h4>
+          <p>We'll work with your best project images to showcase your craftsmanship in a way that makes homeowners picture your work in their own home. The right image in the right place can be the difference between a bounce and a booking.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card__number">03</div>
+          <h4>Built for Speed &amp; Search</h4>
+          <p>A modern, fast-loading site built on Next.js — the same technology used by the world's top brands. Pages load instantly, Google loves it, and it's future-proof for years to come.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card__number">04</div>
+          <h4>Found on Google</h4>
+          <p>Full on-page SEO setup so homeowners searching for "bespoke kitchens Hertfordshire" or "custom furniture near me" find you — not your competitors. Includes structured data that helps Google understand exactly what you offer and where.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card__number">05</div>
+          <h4>Know What's Working</h4>
+          <p>Analytics installed from day one so you can see how many people visit, which pages they love, and where they drop off. No guesswork — just clear data to make smarter decisions.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-card__number">06</div>
+          <h4>Hassle-Free Hosting</h4>
+          <p>Fast, secure hosting included. We handle the technical side — updates, backups, security — so you never have to think about it. If something breaks at 2am, that's our problem, not yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / StoryBrand Messaging Detail -->
+  <section class="proposal-section proposal-section--cream">
+    <div class="proposal-inner">
+      <div class="proposal-header">
+        <span class="eyebrow">The StoryBrand Advantage</span>
+        <h2>Why the Right Words Matter More Than the Right Colours</h2>
+      </div>
+
+      <div class="story-block">
+        <p>Most websites focus on looking good. Yours already does that. The missing piece is <strong>what the website says and how it makes people feel</strong>.</p>
+        <p>The StoryBrand framework, developed by Donald Miller, is used by over 10,000 businesses worldwide. It's based on a simple insight: customers don't buy the best product — they buy the one they understand the fastest.</p>
+        <p>Right now, your site tells visitors what you do. After our rebuild, it will answer the three questions every visitor asks within five seconds:</p>
+      </div>
+
+      <div class="benefits-grid" style="grid-template-columns: 1fr;">
+        <div class="benefit-card" style="max-width: none;">
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-lg);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-lg);">
+              <div>
+                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">1. What do you offer?</h4>
+                <p>Immediately clear — no guessing, no jargon.</p>
+              </div>
+              <div>
+                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">2. How will it improve my life?</h4>
+                <p>An aspirational picture of life with your furniture.</p>
+              </div>
+              <div>
+                <h4 style="color: var(--color-bronze); font-size: 1.125rem; margin-bottom: var(--space-xs);">3. What do I do next?</h4>
+                <p>A clear, confident call to action — every time.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block" style="margin-top: var(--space-xl);">
+        <p>We'll also add testimonials, a clear step-by-step process, and a section that paints a picture of what life looks like <em>after</em> working with Luke Jones Furniture. These aren't nice-to-haves — they're the building blocks of trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your Investment -->
+  <section class="proposal-section proposal-section--black" id="investment">
+    <div class="proposal-inner proposal-inner--wide">
+      <div class="proposal-header">
+        <span class="eyebrow">Your Investment</span>
+        <h2>Website Build</h2>
+        <p>A complete website rebuild — story-driven copy, modern technology, SEO foundation, analytics, and hosting. Everything you need, nothing you don't.</p>
+      </div>
+
+      <div class="investment-summary" style="margin-top: 0;">
+        <div class="investment-row">
+          <span>Full website rebuild (typically)</span>
+          <span><span class="price-was">&pound;2,000</span></span>
+        </div>
+        <div class="investment-row investment-total">
+          <span>Your investment</span>
+          <span>&pound;500</span>
+        </div>
+        <p class="validity-notice">One-off build cost. Includes StoryBrand copy, Next.js rebuild, SEO setup, analytics &amp; launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monthly Packages -->
+  <section class="proposal-section proposal-section--dark" id="packages">
+    <div class="proposal-inner proposal-inner--wide">
+      <div class="proposal-header">
+        <span class="eyebrow">Ongoing Partnership</span>
+        <h2>Choose Your Level of Support</h2>
+        <p>Your website shouldn't be something you set and forget. Choose the level of ongoing care that fits where you are now — and upgrade any time as you grow.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Foundation -->
+        <div class="pricing-card">
+          <div class="pricing-card__name">Foundation</div>
+          <div class="pricing-card__tagline">Keep it running, keep it safe</div>
+          <div class="pricing-card__price">&pound;50 <span>/ month</span></div>
+          <div class="pricing-card__period">Hassle-free website care</div>
+          <ul class="pricing-card__features">
+            <li>Fast, secure hosting &amp; daily backups</li>
+            <li>Security monitoring &amp; updates</li>
+            <li>1 monthly tweak included (opening hours, small text changes — use it or lose it)</li>
+            <li>Email support</li>
+          </ul>
+        </div>
+
+        <!-- Growth -->
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__name">Growth</div>
+          <div class="pricing-card__tagline">Improve every month</div>
+          <div class="pricing-card__price">&pound;107 <span>/ month</span></div>
+          <div class="pricing-card__period">Active care + regular improvements</div>
+          <ul class="pricing-card__features">
+            <li>Everything in Foundation</li>
+            <li>3 monthly tweaks included (use it or lose it each month)</li>
+            <li>Monthly performance report — see how your site is doing in plain English</li>
+            <li>Quarterly growth strategy call — we review the data together and plan what's next</li>
+          </ul>
+        </div>
+
+        <!-- Accelerator -->
+        <div class="pricing-card">
+          <div class="pricing-card__name">Accelerator</div>
+          <div class="pricing-card__tagline">Your website as a growth engine</div>
+          <div class="pricing-card__price">&pound;297 <span>/ month</span></div>
+          <div class="pricing-card__period">Done-for-you website growth</div>
+          <ul class="pricing-card__features">
+            <li>Everything in Growth</li>
+            <li>We actively manage your content based on what the data tells us works</li>
+            <li>We test different headlines, layouts and calls-to-action to increase enquiries</li>
+            <li>Sales funnel development — from first visit to email nurture to consultation booking</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div style="margin-top: var(--space-2xl);">
+        <div class="proposal-header">
+          <span class="eyebrow">Optional Extras</span>
+          <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Powerful Add-Ons</h2>
+          <p>Bolt these onto any package for even more impact.</p>
+        </div>
+
+        <div class="addons-grid">
+          <!-- CRM -->
+          <div class="addon-card">
+            <div class="addon-card__name">Smart Follow-Up</div>
+            <div class="addon-card__price">&pound;21 <span>/ month</span></div>
+            <p>Never let a lead go cold. Every enquiry is automatically logged, followed up, and tracked — so you always know who's interested, who needs a nudge, and who's ready to go. No more sticky notes or forgotten emails. Complete transparency on every prospect.</p>
+          </div>
+
+          <!-- AI Concierge -->
+          <div class="addon-card">
+            <div class="addon-card__name">AI Concierge</div>
+            <div class="addon-card__price">&pound;21 <span>/ month</span></div>
+            <p>A 24/7 personal assistant on your website that answers questions, shares your portfolio, and guides visitors toward booking a consultation — even when you're in the workshop. It's like having your best salesperson available around the clock, never taking a day off.</p>
+          </div>
+
+          <!-- SEO -->
+          <div class="addon-card">
+            <div class="addon-card__name">Local Growth</div>
+            <div class="addon-card__price">&pound;200 <span>/ month</span></div>
+            <p>An ongoing campaign to get you found by homeowners in Hertfordshire and beyond. We create location-targeted content, fine-tune your Google Business profile, and send you a clear monthly report showing your progress. More visibility means more of the right enquiries.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guarantees -->
+      <div class="guarantee-bar">
+        <div class="guarantee-item">No long-term contracts</div>
+        <div class="guarantee-item">Cancel any time</div>
+        <div class="guarantee-item">Your site, your data — always</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Happens Next -->
+  <section class="proposal-section proposal-section--cream">
+    <div class="proposal-inner proposal-inner--wide">
+      <div class="proposal-header">
+        <span class="eyebrow">Getting Started</span>
+        <h2>Three Simple Steps</h2>
+      </div>
+
+      <div class="next-steps">
+        <div class="next-step">
+          <div class="next-step__number">1</div>
+          <h4>Say Yes</h4>
+          <p>Let us know you'd like to go ahead. We'll send a simple agreement and get the ball rolling — no lengthy paperwork.</p>
+        </div>
+        <div class="next-step">
+          <div class="next-step__number">2</div>
+          <h4>We Build It</h4>
+          <p>We'll gather your best photography, write the new story-driven copy, and build the site. You'll see it before it goes live and have the chance to refine anything.</p>
+        </div>
+        <div class="next-step">
+          <div class="next-step__number">3</div>
+          <h4>Watch It Work</h4>
+          <p>Your new website goes live and starts doing what it should — bringing the right customers to your door and making them confident enough to get in touch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="cta-section__content">
+      <span class="eyebrow">Let's Get Started</span>
+      <h2 class="cta-section__title">Ready to Turn Visitors into Consultations?</h2>
+      <p class="cta-section__text">This proposal is valid for 30 days. If you have any questions at all, I'm a phone call away.</p>
+      <div class="cta-section__buttons">
+        <a href="mailto:danny@hertfordshirewebsites.com?subject=Luke%20Jones%20Furniture%20-%20Let's%20Go" class="btn btn--primary"><span>Let's Go — I'm In</span></a>
+        <a href="tel:+447000000000" class="btn btn--light"><span>Let's Talk It Through</span></a>
+      </div>
+      <p class="cta-section__phone">Danny &mdash; <a href="https://hertfordshirewebsites.com">Hertfordshire Websites</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="proposal-footer">
+    <p>This proposal was prepared exclusively for Luke Jones Furniture by <a href="https://hertfordshirewebsites.com">Hertfordshire Websites</a>.</p>
+    <p style="margin-top: 0.5rem;">Confidential &mdash; March 2026</p>
+  </footer>
+
+</body>
+</html>
