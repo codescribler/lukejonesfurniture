@@ -668,7 +668,7 @@
       <div class="proposal-header">
         <span class="eyebrow">Your Package</span>
         <h2 style="font-size: clamp(1.75rem, 3vw, 2.5rem);">Select What You'd Like</h2>
-        <p style="color: var(--color-grey-light);">Tick the options that interest you. The total updates as you go, and you can email your selections straight to us.</p>
+        <p style="color: var(--color-grey-light);">Tick the options that interest you. The total updates as you go. When you're happy, download a summary to send to us.</p>
       </div>
 
       <!-- Build (fixed) -->
@@ -771,15 +771,12 @@
       <div class="sel-totals">
         <div class="sel-totals-inner" id="selTotals"></div>
         <div class="sel-actions">
-          <button class="sel-btn sel-btn--secondary" onclick="downloadJSON()">
+          <button class="sel-btn sel-btn--primary" onclick="downloadPDF()">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Save JSON
+            Download Summary PDF
           </button>
-          <a class="sel-btn sel-btn--primary" id="emailBtn" href="#">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Email My Selections
-          </a>
         </div>
+        <p style="font-size: 0.8125rem; color: var(--color-grey-warm); text-align: center; margin-top: 0.75rem;">Please send the downloaded PDF to <strong style="color: var(--color-ivory);">daniel@dreamfree.co.uk</strong></p>
       </div>
     </div>
   </section>
@@ -803,6 +800,9 @@
     <p>This proposal was prepared exclusively for Luke Jones Furniture by <a href="https://hertfordshirewebsites.com">Hertfordshire Websites</a>.</p>
     <p style="margin-top: 0.5rem;">Confidential &mdash; March 2026</p>
   </footer>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
 
   <script>
     var BUILD_COST = 500;
@@ -863,39 +863,6 @@
       html += '<div class="sel-totals-total" style="margin-top:0.25rem;"><span>Total monthly</span><span>\u00A3' + sel.totals.monthly + '/mo</span></div>';
 
       el.innerHTML = html;
-
-      // mailto
-      var subject = encodeURIComponent('Luke Jones Furniture - Package Selection');
-      var lines = [
-        'LUKE JONES FURNITURE - SELECTED PACKAGE',
-        '========================================',
-        '',
-        'Website Build: \u00A3' + sel.build.price + ' (one-off, 50% upfront / 50% on delivery)',
-        '',
-        'Monthly Package: ' + sel.package.name + ' - \u00A3' + sel.package.price + '/mo'
-      ];
-
-      if (sel.addonsMonthly.length > 0) {
-        lines.push('');
-        lines.push('Monthly Add-ons:');
-        sel.addonsMonthly.forEach(function(a) { lines.push('  - ' + a.name + ': \u00A3' + a.price + '/mo'); });
-      }
-
-      if (sel.addonsOneoff.length > 0) {
-        lines.push('');
-        lines.push('One-off Add-ons:');
-        sel.addonsOneoff.forEach(function(a) { lines.push('  - ' + a.name + ': \u00A3' + a.price); });
-      }
-
-      lines.push('');
-      lines.push('----------------------------------------');
-      lines.push('TOTAL ONE-OFF:  \u00A3' + sel.totals.oneOff);
-      lines.push('TOTAL MONTHLY:  \u00A3' + sel.totals.monthly + '/mo');
-      lines.push('');
-      lines.push('Selected on: ' + sel.date);
-
-      var body = encodeURIComponent(lines.join('\n'));
-      document.getElementById('emailBtn').href = 'mailto:daniel@dreamfree.co.uk?subject=' + subject + '&body=' + body;
     }
 
     // Click handling
@@ -912,16 +879,134 @@
       });
     });
 
-    function downloadJSON() {
+    function downloadPDF() {
       var sel = getSelections();
-      var json = JSON.stringify(sel, null, 2);
-      var blob = new Blob([json], { type: 'application/json' });
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = 'luke-jones-package-' + sel.date + '.json';
-      a.click();
-      URL.revokeObjectURL(url);
+      var jsPDF = window.jspdf.jsPDF;
+      var doc = new jsPDF({ unit: 'mm', format: 'a4' });
+      var W = doc.internal.pageSize.getWidth();
+      var y = 0;
+      var margin = 20;
+      var col2 = W - margin;
+
+      // -- Header band --
+      doc.setFillColor(20, 20, 20);
+      doc.rect(0, 0, W, 52, 'F');
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.setTextColor(180, 170, 158);
+      doc.text('Prepared for', margin, 18);
+
+      doc.setFontSize(22);
+      doc.setTextColor(245, 242, 237);
+      doc.text('Luke Jones Furniture', margin, 30);
+
+      doc.setFontSize(9);
+      doc.setTextColor(201, 166, 107);
+      doc.text('PACKAGE SUMMARY', margin, 40);
+
+      doc.setFontSize(9);
+      doc.setTextColor(180, 170, 158);
+      doc.text(sel.date, col2, 40, { align: 'right' });
+
+      // -- Bronze divider --
+      doc.setDrawColor(201, 166, 107);
+      doc.setLineWidth(0.5);
+      doc.line(margin, 52, W - margin, 52);
+
+      y = 66;
+
+      // -- Helper functions --
+      function sectionTitle(text) {
+        doc.setFontSize(8);
+        doc.setTextColor(201, 166, 107);
+        doc.setFont('helvetica', 'bold');
+        doc.text(text.toUpperCase(), margin, y);
+        y += 2;
+        doc.setDrawColor(230, 225, 218);
+        doc.setLineWidth(0.2);
+        doc.line(margin, y, W - margin, y);
+        y += 7;
+      }
+
+      function lineItem(label, amount) {
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(10);
+        doc.setTextColor(50, 50, 50);
+        doc.text(label, margin, y);
+        doc.setTextColor(80, 80, 80);
+        doc.text(amount, col2, y, { align: 'right' });
+        y += 7;
+      }
+
+      function divider() {
+        doc.setDrawColor(230, 225, 218);
+        doc.setLineWidth(0.2);
+        doc.line(margin, y - 2, W - margin, y - 2);
+        y += 3;
+      }
+
+      // -- Website Build --
+      sectionTitle('Website Build');
+      lineItem('Complete website rebuild', '\u00A3' + sel.build.price);
+      doc.setFontSize(8);
+      doc.setTextColor(150, 145, 138);
+      doc.text('50% on agreement (\u00A3' + (sel.build.price / 2) + ')  |  50% on delivery (\u00A3' + (sel.build.price / 2) + ')  |  Approx. 4 weeks', margin, y);
+      y += 12;
+
+      // -- Monthly Package --
+      sectionTitle('Monthly Package');
+      lineItem(sel.package.name, '\u00A3' + sel.package.price + '/mo');
+      y += 5;
+
+      // -- Monthly Add-ons --
+      if (sel.addonsMonthly.length > 0) {
+        sectionTitle('Monthly Add-Ons');
+        sel.addonsMonthly.forEach(function(a) {
+          lineItem(a.name, '\u00A3' + a.price + '/mo');
+        });
+        y += 5;
+      }
+
+      // -- One-off Add-ons --
+      if (sel.addonsOneoff.length > 0) {
+        sectionTitle('One-Off Add-Ons');
+        sel.addonsOneoff.forEach(function(a) {
+          lineItem(a.name, '\u00A3' + a.price);
+        });
+        y += 5;
+      }
+
+      // -- Totals --
+      doc.setDrawColor(201, 166, 107);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, W - margin, y);
+      y += 10;
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(50, 50, 50);
+      doc.text('Total one-off', margin, y);
+      doc.text('\u00A3' + sel.totals.oneOff, col2, y, { align: 'right' });
+      y += 8;
+
+      doc.setTextColor(201, 166, 107);
+      doc.text('Total monthly', margin, y);
+      doc.text('\u00A3' + sel.totals.monthly + '/mo', col2, y, { align: 'right' });
+      y += 16;
+
+      // -- Footer --
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(150, 145, 138);
+      doc.text('Please send this PDF to daniel@dreamfree.co.uk to confirm your selections.', margin, y);
+      y += 5;
+      doc.text('This proposal is valid for 30 days. No long-term contracts. Cancel any time.', margin, y);
+      y += 10;
+      doc.setTextColor(201, 166, 107);
+      doc.text('Hertfordshire Websites  |  hertfordshirewebsites.com', margin, y);
+
+      doc.save('luke-jones-package-' + sel.date + '.pdf');
     }
 
     updateSummary();
